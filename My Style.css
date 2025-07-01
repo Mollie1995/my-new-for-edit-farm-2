@@ -1,0 +1,862 @@
+/* General Body Styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #fcfcfc;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll due to padding/margin issues */
+}
+
+/* Container for content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Navigation */
+.header {
+    background-color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: padding 0.3s ease; /* For sticky shrink effect */
+}
+
+/* Sticky Shrink effect */
+.header.sticky-shrink {
+    padding: 10px 0; /* Smaller padding when sticky */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Merriweather', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #4CAF50; /* Green */
+    text-decoration: none;
+    transition: font-size 0.3s ease; /* For logo shrink */
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+    transition: height 0.3s ease; /* For logo image shrink */
+}
+
+/* Adjust logo size when navbar shrinks */
+.header.sticky-shrink .logo {
+    font-size: 24px;
+}
+.header.sticky-shrink .logo img {
+    height: 30px;
+}
+
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+.nav-links li {
+    margin-left: 30px;
+    position: relative; /* For dropdown positioning */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    padding: 8px 0;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    display: flex;
+    align-items: center;
+    position: relative; /* For underline effect */
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #6C9F4E; /* Darker Green */
+}
+
+/* Underline effect for nav links */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #6C9F4E; /* Darker Green */
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after, .nav-links a.active::after {
+    width: 100%;
+}
+
+
+.nav-links a svg {
+    margin-left: 5px;
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    z-index: 1;
+    border-radius: 8px;
+    padding: 10px 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links li:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-content a {
+    color: #555;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: background-color 0.3s ease;
+    /* Remove underline for dropdown items */
+    border-bottom: none !important;
+}
+.dropdown-content a::after {
+    display: none; /* Hide underline for dropdown items */
+}
+
+.dropdown-content a:hover {
+    background-color: #f0f0f0;
+    border-radius: 4px; /* Slight rounding for hover */
+}
+
+/* CTA Button */
+.cta-button {
+    background-color: #FF8C00; /* Orange */
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255,140,0,0.2);
+    margin-left: 20px; /* Space from other nav items */
+}
+
+.cta-button:hover {
+    background-color: #FF7B00; /* Darker Orange */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255,140,0,0.3);
+}
+
+/* Search Icon */
+.search-icon {
+    font-size: 1.5em;
+    color: #555;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.search-icon:hover {
+    color: #4CAF50;
+    transform: scale(1.1);
+}
+
+/* Social Media Icons in Navbar */
+.header-social-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px; /* Space from search icon/CTA */
+}
+
+.header-social-icons a {
+    color: #555;
+    font-size: 1.2em; /* Smaller icons for navbar */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; /* Fixed size for circular icons */
+    height: 30px; /* Fixed size for circular icons */
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.05); /* Very subtle background */
+}
+
+.header-social-icons a:hover {
+    color: #FF8C00; /* Orange on hover */
+    transform: translateY(-1px); /* Slight lift */
+    background-color: rgba(0,0,0,0.1);
+}
+
+
+/* Hamburger Menu for Mobile */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px; /* Increase click area */
+}
+
+.menu-toggle .bar {
+    width: 30px; /* Slightly larger bars */
+    height: 4px;
+    background-color: #4CAF50;
+    margin: 4px 0;
+    transition: 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Hamburger animation */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* Hero Section */
+/* Removed the hero section to be replaced by the slider */
+
+
+/* Content Sections */
+.section-padding {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Merriweather', serif;
+    font-size: 3em;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    font-size: 1.1em;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+/* About Section */
+.about-content {
+    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('');
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    text-align: left;
+}
+
+.about-content img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.about-text h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.2em;
+    color: #6C9F4E;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    color: #444;
+}
+
+/* Offerings Section - Cards */
+.offerings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.offering-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.offering-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.offering-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-content h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.8em;
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.card-content .learn-more {
+    display: inline-flex;
+    align-items: center;
+    color: #FF8C00;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.card-content .learn-more:hover {
+    color: #FF7B00;
+}
+
+.card-content .learn-more svg {
+    margin-left: 5px;
+}
+
+/* Call to Action Section */
+.call-to-action {
+    background: linear-gradient(rgba(108,159,78,0.8), rgba(108,159,78,0.8)), url('') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.call-to-action h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.call-to-action p {
+    font-size: 1.2em;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: #ccc;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-links {
+    list-style: none;
+    margin: 0 0 20px 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5em; /* Adjust size for visual balance */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: flex; /* Allows for easy centering of text/icons */
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Example fixed size for square icons */
+    height: 40px; /* Example fixed size for square icons */
+    border-radius: 50%; /* Make them circular */
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background */
+}
+
+.social-icons a:hover {
+    color: #FF8C00;
+    transform: translateY(-3px); /* Lift effect on hover */
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* Slider Container (from farming-slider-css3) */
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* Max width for the slider */
+    height: 550px; /* Fixed height for the slider */
+    margin: 50px auto; /* Centering and spacing */
+    border-radius: 15px; /* Rounded corners for the entire slider */
+    overflow: hidden; /* Hide overflowing parts of slides */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Soft shadow */
+    background-color: #eee; /* Fallback background */
+}
+
+/* Individual Slides (from farming-slider-css3) */
+.slider-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover; /* Cover the entire slide area */
+    background-position: center; /* Center the background image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 1s ease-in-out; /* Smooth fade transition */
+    padding: 20px; /* Inner padding for content */
+}
+
+.slider-slide.active {
+    opacity: 1; /* Show active slide */
+}
+
+/* Text Overlay on Slides (from farming-slider-css3) */
+.slide-content-overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Darker semi-transparent background */
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    max-width: 700px; /* Limit content width */
+    color: #ffffff; /* White text */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow for overlay */
+}
+
+.slide-content-overlay h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 3.2em; /* Larger headline */
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.slide-content-overlay p {
+    font-size: 1.15em;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Learn More Button (from farming-slider-css3) */
+.learn-more-button {
+    display: inline-block;
+    background-color: #FF8C00; /* Orange CTA color */
+    color: white;
+    padding: 14px 35px;
+    border-radius: 30px; /* More rounded */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3); /* Soft shadow for button */
+}
+
+.learn-more-button:hover {
+    background-color: #FF7B00; /* Darker orange on hover */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 8px 20px rgba(255, 140, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+/* Navigation Arrows (from farming-slider-css3) */
+.slider-nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent dark background */
+    color: white;
+    border: none;
+    padding: 15px 18px; /* Larger padding for better touch targets */
+    border-radius: 50%; /* Circular buttons */
+    cursor: pointer;
+    font-size: 1.8em; /* Larger arrow icon */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 10; /* Ensure buttons are above slides */
+}
+
+.slider-nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.6); /* Darker on hover */
+    transform: translateY(-50%) scale(1.05); /* Slight scale up */
+}
+
+.prev-button {
+    left: 20px;
+}
+
+.next-button {
+    right: 20px;
+}
+
+/* Dots Indicator (from farming-slider-css3) */
+.slider-dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px; /* Space between dots */
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white dots */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dot.active {
+    background-color: #ffffff; /* Solid white for active dot */
+    transform: scale(1.2); /* Slightly larger active dot */
+}
+
+.dot:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Brighter on hover */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        position: absolute;
+        top: 70px; /* Adjust based on header height */
+        left: 0;
+        padding: 10px 0;
+        opacity: 0; /* For mobile menu animation */
+        transform: translateY(-20px); /* For mobile menu animation */
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-links.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .nav-links li {
+        margin: 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a {
+        padding: 15px 20px;
+        width: 100%;
+    }
+    /* Remove underline from mobile nav links */
+    .nav-links a::after {
+        display: none;
+    }
+
+    .dropdown-content {
+        position: static; /* Stack dropdowns vertically in mobile */
+        box-shadow: none;
+        padding: 0;
+        min-width: unset;
+        border-radius: 0;
+        opacity: 1; /* Always visible when parent is active */
+        transform: translateY(0);
+        background-color: #f9f9f9;
+        margin-left: 20px; /* Indent sub-items */
+    }
+
+    .nav-links li:hover .dropdown-content {
+        display: block; /* Ensure dropdowns display on tap (mobile) */
+    }
+
+    .cta-button {
+        display: block; /* Show CTA button in mobile nav */
+        margin: 15px auto; /* Center button in mobile */
+    }
+
+    .search-icon, .header-social-icons {
+        display: none; /* Hide search and social icons from mobile navbar to keep it clean */
+    }
+
+    .menu-toggle {
+        display: flex;
+        padding: 10px;
+    }
+
+    /* Slider Responsive Adjustments */
+    .slider-container {
+        height: 450px; /* Adjust height for tablets */
+    }
+    .slide-content-overlay h2 {
+        font-size: 2.5em;
+    }
+    .slide-content-overlay p {
+        font-size: 1em;
+    }
+    .slide-content-overlay {
+        padding: 30px;
+    }
+    .learn-more-button {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hero section already removed */
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        max-width: 100%;
+    }
+    .about-content img {
+        max-width: 80%; /* Adjust image size for smaller screens */
+    }
+
+    .section-title {
+        font-size: 2.5em;
+    }
+
+    .section-description {
+        font-size: 1em;
+    }
+
+    .call-to-action h2 {
+        font-size: 2.5em;
+    }
+
+    .call-to-action p {
+        font-size: 1em;
+    }
+
+    /* Slider Responsive Adjustments */
+    .slider-container {
+        height: 400px; /* Adjust height for larger phones */
+        margin: 20px auto;
+        border-radius: 8px;
+    }
+    .slide-content-overlay h2 {
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+    .slide-content-overlay p {
+        font-size: 0.9em;
+        margin-bottom: 20px;
+    }
+    .slide-content-overlay {
+        padding: 25px;
+        max-width: 90%;
+    }
+    .slider-nav-button {
+        padding: 10px 13px;
+        font-size: 1.5em;
+        left: 10px;
+        right: 10px;
+    }
+    .slider-dots {
+        bottom: 15px;
+    }
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 24px;
+    }
+    /* Hero section already removed */
+    .section-title {
+        font-size: 2em;
+    }
+    .about-text h3 {
+        font-size: 1.8em;
+    }
+    .offering-card {
+        margin: 0 10px; /* Add some side margin for cards on very small screens */
+    }
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Slider Responsive Adjustments */
+    .slider-container {
+        height: 300px; /* Adjust height for smaller phones */
+    }
+    .slide-content-overlay h2 {
+        font-size: 1.5em;
+    }
+    .slide-content-overlay p {
+        font-size: 0.8em;
+        margin-bottom: 15px;
+    }
+    .slide-content-overlay {
+        padding: 20px;
+    }
+    .learn-more-button {
+        padding: 10px 25px;
+        font-size: 0.9em;
+    }
+    .slider-nav-button {
+        display: none; /* Hide navigation buttons on very small screens for touch focus */
+    }
+}
+
+/* Utility for mobile dropdown (JS toggle) */
+.mobile-dropdown-toggle {
+    display: flex !important;
+    justify-content: space-between !important;
+    width: 100%;
+}
+
+.mobile-dropdown-content {
+    display: none;
+}
+
+.mobile-dropdown-content.open {
+    display: block;
+}
+
+
+
+
+.toggle-checkbox {
+    display: none; /* Hide the actual checkbox */
+}
+
+.toggle-label {
+    display: block;
+    cursor: pointer;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle-label:hover {
+    background-color: #e0e0e0;
+}
+
+.toggle-label h3 {
+    margin: 0;
+    color: #4CAF50;
+    font-family: 'Merriweather', serif;
+}
+
+.toggle-label .icon {
+    transition: transform 0.3s ease;
+}
+
+.toggle-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+    padding: 0 15px; /* Initial padding */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+}
+
+.toggle-content p {
+    margin-bottom: 10px;
+}
+
+/* When the checkbox is checked, select its sibling label and change icon */
+.toggle-checkbox:checked + .toggle-label .icon {
+    transform: rotate(45deg);
+}
+
+/* When the checkbox is checked, select its sibling content and show it */
+.toggle-checkbox:checked + .toggle-label + .toggle-content {
+    max-height: 300px; /* Set a value large enough for content */
+    padding: 15px; /* Reveal padding */
+}
+
+
+
+

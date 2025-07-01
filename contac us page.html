@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="my link.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="Images/Black_and_Green_Flat_Illustrated_Organic_Cosmetics_Logo-removebg-preview.png" type="image/x-icon">
+    <title>Contact Us - Nature's Bounty</title>
+</head>
+
+<body>
+
+  <div id="loading-screen">
+        <img src="Images/Black_and_Green_Flat_Illustrated_Organic_Cosmetics_Logo-removebg-preview.png" alt="Nature's Bounty Loading Logo" class="loading-logo">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="Home page.html" class="logo">
+                    <img src="Images/Black_and_Green_Flat_Illustrated_Organic_Cosmetics_Logo-removebg-preview.png" alt="Farm Logo">
+                </a>
+
+                <div class="menu-toggle" id="mobile-menu-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="Home page.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="about us page.html" class="mobile-dropdown-toggle">About Us <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                        <div class="dropdown-content mobile-dropdown-content">
+                           <a href="about us page.html#our-story">Our Story</a>
+                           <a href="about us page.html#our-team">Our Team</a>
+                           <a href="about us page.html#our-values">Our Values</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="We are growing page.html" class="mobile-dropdown-toggle">What We Grow <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                        <div class="dropdown-content mobile-dropdown-content">
+                            <a href="We are growing page.html#crops">Crops</a>
+                            <a href="We are growing page.html#livestock">Livestock</a>
+                            <a href="We are growing page.html#seasonal">Seasonal</a>
+                            <a href="We are growing page.html#products">Products</a>
+                        </div>
+                    </li>
+                    <li><a href="farm tours page.html">Farm Tours</a></li>
+                    <li><a href="blog page.html">Blog</a></li>
+                    <li><a href="contac us page.html">Contact</a></li>
+                    <li><a href="visit page.html" class="cta-button">Visit Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero contact-hero" style="background-image: url('Images/Get\ in\ Touch\ with\ Nature\'s\ Bounty.avif');">
+            <div class="page-hero-overlay">
+                <h1>Get in Touch with Nature's Bounty</h1>
+                <p>Have questions? We're here to help. Reach out to us through any of the methods below.</p>
+            </div>
+        </section>
+
+        <section class="section-padding contact-info-section">
+            <div class="container">
+                <h2 class="section-title">Reach Out to Our Farm Team</h2>
+                <p class="section-description">
+                    Whether you have inquiries about our produce, farm tours, or just want to say hello, we'd love to hear from you.
+                </p>
+
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <i class="fas fa-map-marker-alt icon-feature"></i>
+                        <h3>Our Location</h3>
+                        <p>123 Farmstead Lane</p>
+                        <p>Rural Town, Province, 12345</p>
+                        <p>South Africa</p>
+                        <a href="https://maps.app.goo.gl/YourFarmLocation" target="_blank" class="learn-more-button small">View on Map</a>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-phone-alt icon-feature"></i>
+                        <h3>Call Us</h3>
+                        <p>Farm Office: +27 (0)12 345 6789</p>
+                        <p>Sales: +27 (0)12 987 6543</p>
+                        <p>Mon-Fri: 9am - 5pm SAST</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-envelope icon-feature"></i>
+                        <h3>Email Us</h3>
+                        <p>General Inquiries: <a href="mailto:info@naturesbounty.com">info@naturesbounty.com</a></p>
+                        <p>Sales: <a href="mailto:sales@naturesbounty.com">sales@naturesbounty.com</a></p>
+                        <p>Support: <a href="mailto:support@naturesbounty.com">support@naturesbounty.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding contact-form-section" style="background-color: var(--bg-light);">
+            <div class="container">
+                <h2 class="section-title">Send Us a Message</h2>
+                <p class="section-description">
+                    Fill out the form below, and we'll get back to you as soon as possible.
+                </p>
+
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email:</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject:</label>
+                        <input type="text" id="subject" name="subject" required placeholder="What is your message about?">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message:</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Type your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+
+        <section class="section-padding payment-info-section">
+    <div class="container">
+        <h2 class="section-title">Payment Information</h2>
+        <p class="section-description">
+            For direct payments or donations, please find our bank details and scan-to-pay options below.
+        </p>
+
+        <div class="payment-grid">
+            <div class="payment-card">
+                <h3><i class="fas fa-university value-icon"></i> Bank Transfer</h3>
+                <p><strong>Bank Name:</strong> Green Harvest Bank</p>
+                <p><strong>Account Name:</strong> Nature's Bounty Farm (Pty) Ltd</p>
+                <p><strong>Account Number:</strong> 123 456 7890</p>
+                <p><strong>Branch Code:</strong> 987654</p>
+                <p><strong>Swift/BIC:</strong> GHRVZAJJXXX</p>
+                <p class="note">Please use your name or order number as reference.</p>
+            </div>
+            <div class="payment-card">
+                <h3><i class="fas fa-qrcode value-icon"></i> Scan to Pay</h3>
+                <div class="qr-code-container">
+                    <img src="Images/qr_code_payment.webp" alt="Scan to Pay QR Code" class="qr-code">
+                </div>
+                <p class="note">Scan this QR code with your banking app for quick payments.</p>
+                <p>Supported Apps: FNB App, Capitec App, Standard Bank App, etc.</p>
+                <button id="downloadQrButton" class="cta-button small-cta-button">
+                    <i class="fas fa-download"></i> Download QR Code
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+      
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="Home page.html">Home</a></li>
+                <li><a href="about us page.html">About Us</a></li>
+                <li><a href="We are growing page.html">What We Grow</a></li>
+                <li><a href="farm tours page.html">Farm Tours</a></li>
+                <li><a href="blog page.html">Blog</a></li>
+                <li><a href="contac us page.html">Contact</a></li>
+            </ul>
+            <p>&copy; 2024 Nature's Bounty Farm. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.Instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www/twitter.com" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="Java.js"></script>
+</body>
+</html>

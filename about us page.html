@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="my css.css">
+    <!-- Google Fonts for Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" xintegrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="Images/Black_and_Green_Flat_Illustrated_Organic_Cosmetics_Logo-removebg-preview.png" type="image/x-icon">
+    <title>About Us - Nature's Bounty</title>
+</head>
+
+<body>
+    
+      <div id="loading-screen">
+        <img src="Images/Black_and_Green_Flat_Illustrated_Organic_Cosmetics_Logo-removebg-preview.png" alt="Nature's Bounty Loading Logo" class="loading-logo">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="Home page.html" class="logo">
+                    <img src="Images/Black_and_Green_Flat_Illustrated_Organic_Cosmetics_Logo-removebg-preview.png" alt="Farm Logo">
+                </a>
+
+                <div class="menu-toggle" id="mobile-menu-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="Home page.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="about us page.html" class="mobile-dropdown-toggle">About Us <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                        <div class="dropdown-content mobile-dropdown-content">
+                           <a href="about us page.html#our-story">Our Story</a>
+                           <a href="about us page.html#our-team">Our Team</a>
+                           <a href="about us page.html#our-values">Our Values</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="We are growing page.html" class="mobile-dropdown-toggle">What We Grow <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                        <div class="dropdown-content mobile-dropdown-content">
+                            <a href="We are growing page.html#crops">Crops</a>
+                            <a href="We are growing page.html#livestock">Livestock</a>
+                            <a href="We are growing page.html#seasonal">Seasonal</a>
+                            <a href="We are growing page.html#products">Products</a>
+                        </div>
+                    </li>
+                    <li><a href="farm tours page.html">Farm Tours</a></li>
+                    <li><a href="blog page.html">Blog</a></li>
+                    <li><a href="contac us page.html">Contact</a></li>
+                    <li><a href="visit page.html" class="cta-button">Visit Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section for About Page -->
+        <section class="page-hero" style="background-image: url('Images/bout\ us\ picture.webp');">
+            <div class="page-hero-overlay">
+                <h1>About Nature's Bounty Farm</h1>
+                <p>Rooted in tradition, growing for the future. Discover our journey and commitment.</p>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="section-padding" id="our-story">
+            <div class="container">
+                <h2 class="section-title">Our Story, Rooted in Passion</h2>
+                <p class="section-description">
+                    At Nature's Bounty Farm, we believe in a harmonious relationship with the land.
+                    For generations, our family has dedicated itself to sustainable farming,
+                    delivering wholesome food and fostering a thriving ecosystem.
+                </p>
+                <div class="story-content">
+                    <img src="Images/sifiso-removebg-preview.png" alt="Farm Family at Nature's Bounty" class="story-image">
+                    <div class="story-text">
+                        <h3>From Humble Beginnings to a Green Future</h3>
+                        <p>
+                            Our journey began over 50 years ago with a simple dream: to grow the healthiest food possible while caring for our planet. What started as a small family plot, nurtured by the hands of our grandparents, has blossomed into a vibrant, diverse farm committed to organic practices and ecological balance.
+                        </p>
+                        <p>
+                            We've always embraced innovation, blending time-honored farming wisdom with modern sustainable techniques. This dedication ensures not only the superior quality of our produce but also the well-being of the land for generations to come. Every seed planted, every animal raised, and every harvest gathered reflects our unwavering commitment to ethical stewardship and a deep respect for nature's rhythms.
+                        </p>
+                        <p>
+                            We are more than just a farm; we are a community built on shared values of health, sustainability, and transparency. Join us as we continue to grow, learn, and provide the freshest bounty from our fields to your table.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Team Section -->
+        <section class="section-padding" id="our-team" style="background-color: #f8f8f8;">
+            <div class="container">
+                <h2 class="section-title">Meet Our Dedicated Team</h2>
+                <p class="section-description">
+                    Behind every vibrant crop and healthy animal is a team passionate about sustainable agriculture and nourishing our community.
+                </p>
+                <div class="team-grid">
+                    <!-- Team Member 1 -->
+                    <div class="team-member-card">
+                        <img src="https://placehold.co/200x200/98C1D9/FFFFFF?text=Farmer+John" alt="Portrait of Farmer John">
+                        <h3>John Doe</h3>
+                        <p class="role">Head Farmer & Founder</p>
+                        <p class="bio">With over 40 years of experience, John's passion for the land is the heart of our farm. He ensures every practice upholds our organic principles.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="John Doe's Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="John Doe's Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div class="team-member-card">
+                        <img src="https://placehold.co/200x200/A7D9A4/FFFFFF?text=Sarah+Smith" alt="Portrait of Sarah Smith">
+                        <h3>Sarah Smith</h3>
+                        <p class="role">Operations Manager</p>
+                        <p class="bio">Sarah manages daily operations, ensuring efficiency and quality from seed to sale. Her dedication keeps Nature's Bounty running smoothly.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Sarah Smith's LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Sarah Smith's Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="team-member-card">
+                        <img src="https://placehold.co/200x200/C6A78D/FFFFFF?text=Emily+Brown" alt="Portrait of Emily Brown">
+                        <h3>Emily Brown</h3>
+                        <p class="role">Community Outreach Coordinator</p>
+                        <p class="bio">Emily connects us with the community, organizing farm tours, workshops, and our CSA program. She's the friendly face of our farm!</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Emily Brown's Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Emily Brown's Email"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+
+                     <!-- Team Member 4 -->
+                     <div class="team-member-card">
+                        <img src="https://placehold.co/200x200/E5CC9E/FFFFFF?text=David+Wilson" alt="Portrait of David Wilson">
+                        <h3>David Wilson</h3>
+                        <p class="role">Livestock Specialist</p>
+                        <p class="bio">David ensures the health and happiness of all our animals, implementing humane and sustainable livestock management practices.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="David Wilson's Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="David Wilson's LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Values Section -->
+        <section class="section-padding values-section" id="our-values">
+            <div class="container">
+                <h2 class="section-title">Our Core Values</h2>
+                <p class="section-description">
+                    These principles guide every decision we make, from the soil we nurture to the relationships we build.
+                </p>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <i class="fas fa-leaf value-icon"></i>
+                        <h3>Sustainability</h3>
+                        <p>Committed to eco-friendly practices that protect the environment and preserve natural resources for future generations.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-hand-holding-heart value-icon"></i>
+                        <h3>Integrity</h3>
+                        <p>Operating with honesty and transparency in all our dealings, from farming methods to customer relations.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-users value-icon"></i>
+                        <h3>Community</h3>
+                        <p>Fostering strong connections within our local community and supporting local economies.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-seedling value-icon"></i>
+                        <h3>Quality</h3>
+                        <p>Dedicated to growing and providing the highest quality, freshest, and most nutritious produce and products.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-tractor value-icon"></i>
+                        <h3>Innovation</h3>
+                        <p>Continuously seeking and applying new, efficient, and sustainable farming techniques.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-shield-alt value-icon"></i>
+                        <h3>Animal Welfare</h3>
+                        <p>Ensuring our livestock are raised in humane, healthy, and stress-free environments.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    
+
+    <!-- Footer Section (Copied from your existing index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="Home page.html">Home</a></li>
+                <li><a href="about us page.html">About Us</a></li>
+                <li><a href="We are growing page.html">What We Grow</a></li>
+                <li><a href="farm tours page.html">Farm Tours</a></li>
+                <li><a href="blog page.html">Blog</a></li>
+                <li><a href="contac us page.html">Contact</a></li>
+            </ul>
+            <p>&copy; 2024 Nature's Bounty Farm. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.Instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wwww.twitter.com" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="Java.js"></script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature's Bounty Farm - Our Seasonal Harvest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="my css.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="loading-screen">
+        <img src="Images/Black_and_Green_Flat_Illustrated_Organic_Cosmetics_Logo-removebg-preview.png" alt="Nature's Bounty Loading Logo" class="loading-logo">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="Home page.html" class="logo">
+                    <img src="Images/Black_and_Green_Flat_Illustrated_Organic_Cosmetics_Logo-removebg-preview.png" alt="Farm Logo">
+                </a>
+
+                <div class="menu-toggle" id="mobile-menu-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="Home page.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="about us page.html" class="mobile-dropdown-toggle">About Us <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                        <div class="dropdown-content mobile-dropdown-content">
+                           <a href="about us page.html#our-story">Our Story</a>
+                           <a href="about us page.html#our-team">Our Team</a>
+                           <a href="about us page.html#our-values">Our Values</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="We are growing page.html" class="mobile-dropdown-toggle">What We Grow <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                        <div class="dropdown-content mobile-dropdown-content">
+                            <a href="We are growing page.html#crops">Crops</a>
+                            <a href="We are growing page.html#livestock">Livestock</a>
+                            <a href="We are growing page.html#seasonal">Seasonal</a>
+                            <a href="We are growing page.html#products">Products</a>
+                        </div>
+                    </li>
+                    <li><a href="farm tours page.html">Farm Tours</a></li>
+                    <li><a href="blog page.html">Blog</a></li>
+                    <li><a href="contac us page.html">Contact</a></li>
+                    <li><a href="visit page.html" class="cta-button">Visit Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="seasonal-hero section-padding">
+            <div class="container">
+                <div class="seasonal-hero-content">
+                    <h1 class="hero-title">Taste the Season: Summer's Abundance!</h1>
+                    <p class="hero-description">Embrace the vibrant flavors and fresh harvests of the summer season. Our fields are bursting with sun-kissed fruits and vegetables, ready for your table.</p>
+                    <a href="#seasonal-produce" class="cta-button hero-cta-button">Explore Summer Produce</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="seasonal-produce" class="section-padding seasonal-produce-section">
+            <div class="container">
+                <h2 class="section-title text-center">What's Ripe Right Now?</h2>
+                <p class="section-description text-center">From crisp greens to juicy berries, here's what's currently being harvested at Nature's Bounty Farm.</p>
+
+                <div class="cards-grid">
+                    <div class="card img-hover-scale">
+                        <img src="Images/Heirloom Tomatoes.avif" alt="Fresh Tomatoes" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Heirloom Tomatoes</h3>
+                            <p class="card-text">Sweet, tangy, and bursting with summer flavor. Perfect for salads, sauces, or just a bite on their own.</p>
+                            <span class="availability available">Currently Available</span>
+                            <a href="#" class="card-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="card img-hover-scale">
+                        <img src="Images/Luscious Strawberries.webp" alt="Sweet Strawberries" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Luscious Strawberries</h3>
+                            <p class="card-text">Hand-picked for peak ripeness. Ideal for desserts, jams, or a healthy snack.</p>
+                            <span class="availability available">Currently Available</span>
+                            <a href="#" class="card-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="card img-hover-scale">
+                        <img src="Images/Crisp Romaine Lettuce.jpg" alt="Crisp Lettuce" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Crisp Romaine Lettuce</h3>
+                            <p class="card-text">Fresh, crunchy, and perfect for your summer salads. A staple from our fields.</p>
+                            <span class="availability available">Currently Available</span>
+                            <a href="#" class="card-link">View Details <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="card img-hover-scale">
+                        <img src="Images/Autumn Pumpkins.jpg" alt="Pumpkins" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Autumn Pumpkins</h3>
+                            <p class="card-text">Our pumpkins are growing well! Get ready for autumn's harvest of carving and pie pumpkins.</p>
+                            <span class="availability upcoming">Coming Soon!</span>
+                            <a href="#" class="card-link disabled">Notify Me</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding seasonal-activities-section">
+            <div class="container">
+                <h2 class="section-title text-center">Summer Farm Adventures</h2>
+                <p class="section-description text-center">Join us for special events and activities that celebrate the joy of the season!</p>
+
+                <div class="cards-grid">
+                    <div class="card img-hover-overlay">
+                        <img src="Images/Pick-Your-Own Berries.webp" alt="Pick-Your-Own Fields" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Pick-Your-Own Berries</h3>
+                            <p class="card-text">Spend a delightful morning picking your own fresh blueberries and raspberries straight from the bush.</p>
+                            <a href="#" class="cta-button card-button">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="card img-hover-overlay">
+                        <img src="Images/Weekly Summer Farm Market.webp" alt="Farm Market" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Weekly Summer Farm Market</h3>
+                            <p class="card-text">Every Saturday, come to our farm market for fresh produce, artisan goods, and local crafts.</p>
+                            <a href="#" class="cta-button card-button">Get Directions</a>
+                        </div>
+                    </div>
+
+                    <div class="card img-hover-overlay">
+                        <img src="Images/Farm-to-Table Cooking Classes.jpg" alt="Cooking Class" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Farm-to-Table Cooking Classes</h3>
+                            <p class="card-text">Learn how to cook with fresh, seasonal ingredients directly from our fields with guest chefs.</p>
+                            <a href="#" class="cta-button card-button">View Schedule</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding cta-banner">
+            <div class="container text-center">
+                <h2 class="section-title cta-title">Experience the Bounty All Year Round!</h2>
+                <p class="section-description cta-description">Don't miss out on upcoming seasonal produce and events. Join our CSA program or visit us today!</p>
+                <a href="products.html" class="cta-button primary-cta-button">Shop Our Products</a>
+                <a href="contact.html" class="cta-button secondary-cta-button">Plan Your Visit</a>
+            </div>
+        </section>
+    </main>
+
+   
+   <footer class="footer">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="Home page.html">Home</a></li>
+                <li><a href="about us page.html">About Us</a></li>
+                <li><a href="We are growing page.html">What We Grow</a></li>
+                <li><a href="farm tours page.html">Farm Tours</a></li>
+                <li><a href="blog page.html">Blog</a></li>
+                <li><a href="contac us page.html">Contact</a></li>
+            </ul>
+            <p>&copy; 2024 Nature's Bounty Farm. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.Instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.Twitter.com" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+   <script src="Java.js"></script>
+</body>
+</html>

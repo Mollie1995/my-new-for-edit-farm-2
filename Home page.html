@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="my css.css">
+      <!-- Google Fonts for Typography -->
+      <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="Images/Black_and_Green_Flat_Illustrated_Organic_Cosmetics_Logo-removebg-preview.png" type="image/x-icon">
+    <title>Home</title>
+
+</head>
+
+<body>
+
+
+
+    
+ <div id="loading-screen">
+        <img src="Images/Black_and_Green_Flat_Illustrated_Organic_Cosmetics_Logo-removebg-preview.png" alt="Nature's Bounty Loading Logo" class="loading-logo">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="Home page.html" class="logo">
+                    <img src="Images/Black_and_Green_Flat_Illustrated_Organic_Cosmetics_Logo-removebg-preview.png" alt="Farm Logo">
+                </a>
+
+                <div class="menu-toggle" id="mobile-menu-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="Home page.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="about us page.html" class="mobile-dropdown-toggle">About Us <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                        <div class="dropdown-content mobile-dropdown-content">
+                           <a href="about us page.html#our-story">Our Story</a>
+                           <a href="about us page.html#our-team">Our Team</a>
+                           <a href="about us page.html#our-values">Our Values</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="We are growing page.html" class="mobile-dropdown-toggle">What We Grow <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                        <div class="dropdown-content mobile-dropdown-content">
+                            <a href="We are growing page.html#crops">Crops</a>
+                            <a href="We are growing page.html#livestock">Livestock</a>
+                            <a href="We are growing page.html#seasonal">Seasonal</a>
+                            <a href="We are growing page.html#products">Products</a>
+                        </div>
+                    </li>
+                    <li><a href="farm tours page.html">Farm Tours</a></li>
+                    <li><a href="blog page.html">Blog</a></li>
+                    <li><a href="contac us page.html">Contact</a></li>
+                    <li><a href="visit page.html" class="cta-button">Visit Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="call-to-action">
+        <div class="slider-container">
+            <div class="slider-slide active" style="background-image: url('Images/your field.webp');">
+                <div class="slide-content-overlay">
+                    <h2>Our Fields, Your Table</h2>
+                    <p>Discover the freshest, organically grown produce harvested with care and delivered straight from our farm.</p>
+                    <a href="#" class="learn-more-button" data-modal-target="#produceModal">Learn More About Produce</a>
+                </div>
+            </div>
+
+            <div class="slider-slide" style="background-image: url('Images/wallpaper 3.webp');">
+                <div class="slide-content-overlay">
+                    <h2>Sustainable Practices, Healthy Future</h2>
+                    <p>We are committed to ethical farming methods that protect our environment and ensure the well-being of our animals.</p>
+                    <a href="#" class="learn-more-button" data-modal-target="#sustainableModal">Our Farming Philosophy</a>
+                </div>
+            </div>
+
+            <div class="slider-slide" style="background-image: url('Images/wallpaper 2.jpg');">
+                <div class="slide-content-overlay">
+                    <h2>Experience Farm Life</h2>
+                    <p>Join us for guided farm tours, seasonal U-Pick events, and workshops that connect you with nature.</p>
+                    <a href="#" class="learn-more-button" data-modal-target="#toursModal">Plan Your Visit</a>
+                </div>
+            </div>
+
+            <div class="slider-slide" style="background-image: url('Images/Fresh Dairy Products.avif');">
+                <div class="slide-content-overlay">
+                    <h2>Fresh Dairy Products</h2>
+                    <p>Enjoy our creamy milk and delicious cheeses, made with care from our happy cows.</p>
+                    <a href="#" class="learn-more-button" data-modal-target="#dairyModal">Explore Dairy</a>
+                </div>
+            </div>
+
+            <div class="slider-slide" style="background-image: url('Images/Honey and Preserves.jpg');">
+                <div class="slide-content-overlay">
+                    <h2>Honey and Preserves</h2>
+                    <p>Taste the sweetness of our local honey and the rich flavors of our homemade jams and preserves.</p>
+                    <a href="#" class="learn-more-button" data-modal-target="#honeyPreservesModal">View Our Products</a>
+                </div>
+            </div>
+
+            <div class="slider-slide" style="background-image: url('Images/Community Supported Agriculture.webp');">
+                <div class="slide-content-overlay">
+                    <h2>Community Supported Agriculture (CSA)</h2>
+                    <p>Become a member and receive a weekly share of our freshest seasonal harvest.</p>
+                    <a href="#" class="learn-more-button" data-modal-target="#csaModal">Learn About CSA</a>
+                </div>
+            </div>
+
+            <button class="slider-nav-button prev-button" aria-label="Previous Slide">&lt;</button>
+            <button class="slider-nav-button next-button" aria-label="Next Slide">&gt;</button>
+
+            <div class="slider-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+                <span class="dot" data-slide="4"></span>
+                <span class="dot" data-slide="5"></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="about">
+        <div class="container">
+            <h2 class="section-title">Our Story, Rooted in Passion</h2>
+            <p class="section-description">
+                At Nature's Bounty Farm, we believe in a harmonious relationship with the land.
+                For generations, our family has dedicated itself to sustainable farming,
+                delivering wholesome food and fostering a thriving ecosystem.
+            </p>
+            <div class="about-content">
+                <img src="Images/sifiso-removebg-preview.png" alt="Farm Family">
+                <div class="about-text">
+                    <h3>A Legacy of Sustainable Farming</h3>
+                    <p>
+                        Our journey began over 50 years ago with a simple dream: to grow the healthiest food possible while caring for our planet. We've evolved with time, embracing organic practices and innovative techniques that ensure both ecological balance and superior quality produce.
+                    </p>
+                    <p>
+                        Every seed planted, every animal raised, and every harvest gathered reflects our unwavering commitment to ethical stewardship and a deep respect for nature's rhythms. We invite you to be a part of our story.
+                    </p>
+                    <a href="#" class="learn-more-button" data-modal-target="#aboutUsModal">Learn More About Us <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="offerings" style="background-color: #f8f8f8;">
+        <div class="container">
+            <h2 class="section-title">What Nature's Bounty Offers</h2>
+            <p class="section-description">
+                Discover the rich variety of fresh produce, ethically raised meats, and artisanal products
+                available directly from our farm. Quality and freshness guaranteed.
+            </p>
+            <div class="offerings-grid">
+                <div class="offering-card">
+                    <img src="Images/Fresh Vegetables.jpg" alt="Fresh Vegetables">
+                    <div class="card-content">
+                        <h3>Seasonal Vegetables</h3>
+                        <p>Harvested at their peak, our vegetables are packed with flavor and nutrients, straight from our organic fields to your kitchen.</p>
+                        <a href="#" class="learn-more-button" data-modal-target="#vegetablesModal">View Vegetables <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+                    </div>
+                </div>
+
+                <div class="offering-card">
+                    <img src="Images/Ethical Livestock.webp" alt="Pastured Poultry">
+                    <div class="card-content">
+                        <h3>Ethical Livestock</h3>
+                        <p>Our animals roam freely on lush pastures, raised without hormones or antibiotics, ensuring healthy and delicious meats.</p>
+                        <a href="#" class="learn-more-button" data-modal-target="#livestockModal">Explore Meats <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+                    </div>
+                </div>
+
+                <div class="offering-card">
+                    <img src="Images/Artisanal Products.webp" alt="Artisanal Products">
+                    <div class="card-content">
+                        <h3>Artisanal Products</h3>
+                        <p>From golden honey to homemade jams and baked goods, enjoy the crafted taste of our farm's value-added offerings.</p>
+                        <a href="#" class="learn-more-button" data-modal-target="#artisanalModal">Discover More <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="produceModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Fresh, Organic Produce from Our Farm</h3>
+            <p>At Nature's Bounty, we are dedicated to bringing you the highest quality, **organically grown fruits and vegetables**. Our produce is harvested at its peak freshness, ensuring maximum flavor and nutritional value.</p>
+            <p>We use **sustainable farming practices** that protect the environment and support biodiversity. This means no harmful pesticides or chemicals, just pure, wholesome goodness from the soil to your plate.</p>
+            <p>Experience the difference of truly fresh food, cultivated with care and delivered directly from our fields to your table. You can learn more about our specific farming methods and what’s currently in season by visiting our dedicated produce page.</p>
+            <a href="/produce-page.html" class="modal-button">Explore Our Produce</a>
+        </div>
+    </div>
+
+    <div id="sustainableModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Our Commitment to Sustainable Farming</h3>
+            <p>Our farming philosophy centers on **stewardship of the land and ethical animal welfare**. We employ practices like crop rotation, composting, and water conservation to maintain soil health and reduce our environmental footprint.</p>
+            <p>Our animals are raised with ample space, natural diets, and humane treatment, reflecting our deep respect for all living things. This commitment ensures not only healthy produce and livestock but also a **thriving, resilient ecosystem** for future generations.</p>
+            <a href="/sustainability-page.html" class="modal-button">Learn More About Our Practices</a>
+        </div>
+    </div>
+
+    <div id="toursModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Plan Your Visit to Nature's Bounty Farm</h3>
+            <p>Step onto our farm and **experience rural life firsthand!** We offer guided tours that take you through our fields, introduce you to our animals, and explain our organic farming methods.</p>
+            <p>Look out for our **seasonal U-Pick events** where you can harvest your own berries, vegetables, and more. We also host engaging workshops on topics like composting, beekeeping, and healthy cooking. It’s a wonderful way to connect with nature and understand where your food comes from.</p>
+            <a href="/farm-tours-page.html" class="modal-button">Book a Tour Now</a>
+        </div>
+    </div>
+
+    <div id="dairyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Farm-Fresh Dairy Products</h3>
+            <p>Indulge in the creamy goodness of our **fresh dairy products**, made from the milk of our happy, pasture-raised cows. Our milk is minimally processed to retain its natural flavor and nutrients.</p>
+            <p>Discover our range of **artisanal cheeses**, handcrafted with traditional methods, and our rich, wholesome yogurt. From our farm to your fridge, experience dairy as nature intended – pure, delicious, and full of character.</p>
+            <a href="/dairy-products-page.html" class="modal-button">Shop Dairy Products</a>
+        </div>
+    </div>
+
+    <div id="honeyPreservesModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Sweet Delights: Honey and Preserves</h3>
+            <p>Savor the natural sweetness of our **local honey**, gathered from our own beehives, reflecting the diverse flora of our farm. It's raw, unfiltered, and packed with beneficial properties.</p>
+            <p>Don't miss our **homemade jams and preserves**, crafted from our seasonal fruits. Made in small batches with simple, wholesome ingredients, they capture the true essence of summer all year round. Perfect for your breakfast table or as a thoughtful gift!</p>
+            <a href="/artisanal-products-page.html" class="modal-button">Browse Jams & Honey</a>
+        </div>
+    </div>
+
+    <div id="csaModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Join Our Community Supported Agriculture (CSA)</h3>
+            <p>Become a vital part of our farm's journey by joining our **CSA program**. As a member, you'll receive a weekly or bi-weekly share of our freshest, in-season produce, harvested specifically for you.</p>
+            <p>It's a direct connection to your food source, offering unparalleled freshness, variety, and the opportunity to support local, sustainable agriculture. Enjoy the bounty of the season and discover new favorites with every delivery!</p>
+            <a href="sign up page.html" class="modal-button">Sign Up for CSA</a>
+        </div>
+    </div>
+
+    <div id="aboutUsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Our Story: Generations of Farming Excellence</h3>
+            <p>Nature's Bounty Farm is more than just a farm; it's a legacy. For over five decades, our family has nurtured this land, passing down traditional farming wisdom combined with modern organic techniques.</p>
+            <p>Our journey began with a simple belief: that healthy soil grows healthy food, and healthy food builds healthy communities. We are deeply committed to **environmental stewardship, ethical animal husbandry, and transparent practices**. Every product you enjoy from our farm is a testament to our unwavering dedication to quality, integrity, and sustainability.</p>
+            <a href="about us page.html" class="modal-button">Read Our Full Story</a>
+        </div>
+    </div>
+
+    <div id="vegetablesModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Our Vibrant Seasonal Vegetables</h3>
+            <p>From crisp spring greens to hearty root vegetables in winter, our fields yield an abundant variety of **organic vegetables** throughout the year. We plant diverse crops to ensure a healthy ecosystem and a continuous supply of fresh produce.</p>
+            <p>Each vegetable is **harvested at its peak ripeness**, ensuring you receive the freshest taste and maximum nutritional value. Check our "What's In Season" page regularly to see what's currently available!</p>
+            <a href="Our Vibrant Seasonal Vegetables.html" class="modal-button">See What's Growing</a>
+        </div>
+    </div>
+
+    <div id="livestockModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Ethically Raised Livestock for Wholesome Meats</h3>
+            <p>Our commitment to **animal welfare** is paramount. Our livestock (chickens, pigs, and cattle) roam freely on lush, open pastures, enjoying natural diets and living stress-free lives. We never use hormones, antibiotics, or unnatural feed.</p>
+            <p>This ethical approach results in **superior quality meats** that are not only delicious but also healthier for you and the planet. Experience the difference in taste that truly humane and sustainable practices make.</p>
+            <a href="our ethical page.html" class="modal-button">Learn About Our Animals</a>
+        </div>
+    </div>
+
+    <div id="artisanalModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Handcrafted Artisanal Products</h3>
+            <p>Beyond fresh produce and meats, Nature's Bounty Farm proudly offers a range of **artisanal products** crafted with care using our own farm-grown ingredients. This includes our pure, unfiltered honey, delicious fruit preserves, and freshly baked goods.</p>
+            <p>Each item is made in small batches, ensuring exceptional quality and a taste that truly reflects the bounty of our farm. These products are perfect for enhancing your meals, gifting, or simply enjoying as a wholesome treat.</p>
+            <a href="our artisanal products.html" class="modal-button">Discover All Our Products</a>
+        </div>
+    </div>
+
+
+    <section class="call-to-action">
+        <div class="container">
+            <h2>Ready to Taste the Difference?</h2>
+            <p>Join our community, visit our farm, or order fresh produce online. Experience Nature's Bounty today!</p>
+            <a href="#" class="cta-button">Plan Your Visit</a>
+        </div>
+    </section>
+
+
+       <footer class="footer">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="Home page.html">Home</a></li>
+                <li><a href="about us page.html">About Us</a></li>
+                <li><a href="We are growing page.html">What We Grow</a></li>
+                <li><a href="farm tours page.html">Farm Tours</a></li>
+                <li><a href="blog page.html">Blog</a></li>
+                <li><a href="contac us page.html">Contact</a></li>
+            </ul>
+            <p>&copy; 2024 Nature's Bounty Farm. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.Instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.Twitter.com" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+<script src="Java.js"></script>
+</body>
+</html>

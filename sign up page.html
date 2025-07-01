@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature's Bounty Farm - Sign In / Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="my css.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+     <div id="loading-screen">
+        <img src="Images/Black_and_Green_Flat_Illustrated_Organic_Cosmetics_Logo-removebg-preview.png" alt="Nature's Bounty Loading Logo" class="loading-logo">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="Home page.html" class="logo">
+                    <img src="Images/Black_and_Green_Flat_Illustrated_Organic_Cosmetics_Logo-removebg-preview.png" alt="Farm Logo">
+                </a>
+
+                <div class="menu-toggle" id="mobile-menu-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="Home page.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="about us page.html" class="mobile-dropdown-toggle">About Us <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                        <div class="dropdown-content mobile-dropdown-content">
+                           <a href="about us page.html#our-story">Our Story</a>
+                           <a href="about us page.html#our-team">Our Team</a>
+                           <a href="about us page.html#our-values">Our Values</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="We are growing page.html" class="mobile-dropdown-toggle">What We Grow <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                        <div class="dropdown-content mobile-dropdown-content">
+                            <a href="We are growing page.html#crops">Crops</a>
+                            <a href="We are growing page.html#livestock">Livestock</a>
+                            <a href="We are growing page.html#seasonal">Seasonal</a>
+                            <a href="We are growing page.html#products">Products</a>
+                        </div>
+                    </li>
+                    <li><a href="farm tours page.html">Farm Tours</a></li>
+                    <li><a href="blog page.html">Blog</a></li>
+                    <li><a href="contac us page.html">Contact</a></li>
+                    <li><a href="visit page.html" class="cta-button">Visit Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-padding auth-section">
+            <div class="container">
+                <div class="auth-card">
+                    <div class="auth-toggle-buttons">
+                        <button id="showSignIn" class="auth-toggle-btn active">Sign In</button>
+                        <button id="showSignUp" class="auth-toggle-btn">Sign Up</button>
+                    </div>
+
+                    <div id="signInForm" class="auth-form-container">
+                        <h2 class="section-title">Welcome Back!</h2>
+                        <p class="section-description">Log in to manage your account and orders.</p>
+
+                        <form class="login-form">
+                            <div class="form-group">
+                                <label for="loginEmail">Email Address</label>
+                                <input type="email" id="loginEmail" name="loginEmail" required aria-label="Email Address">
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword">Password</label>
+                                <input type="password" id="loginPassword" name="loginPassword" required aria-label="Password">
+                                <small class="password-note"><a href="#" class="form-link">Forgot password?</a></small>
+                            </div>
+                            <button type="submit" class="cta-button auth-button">Log In</button>
+                        </form>
+                        <p class="switch-prompt">Don't have an account? <a href="#" class="form-link" data-target="signUpForm">Sign Up Here</a></p>
+                    </div>
+
+                    <div id="signUpForm" class="auth-form-container hidden">
+                        <h2 class="section-title">Join Our Family!</h2>
+                        <p class="section-description">Register for exclusive benefits and fresh produce.</p>
+
+                        <form class="registration-form">
+                            <div class="form-group">
+                                <label for="signUpFirstName">First Name</label>
+                                <input type="text" id="signUpFirstName" name="signUpFirstName" required aria-label="First Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="signUpLastName">Last Name</label>
+                                <input type="text" id="signUpLastName" name="signUpLastName" required aria-label="Last Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="signUpEmail">Email Address</label>
+                                <input type="email" id="signUpEmail" name="signUpEmail" required aria-label="Email Address">
+                            </div>
+                            <div class="form-group">
+                                <label for="signUpPassword">Password</label>
+                                <input type="password" id="signUpPassword" name="signUpPassword" required aria-label="Password" minlength="8">
+                                <small class="password-note">Must be at least 8 characters long.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="signUpConfirmPassword">Confirm Password</label>
+                                <input type="password" id="signUpConfirmPassword" name="signUpConfirmPassword" required aria-label="Confirm Password">
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="signUpTerms" name="signUpTerms" required aria-label="Agree to Terms and Conditions">
+                                <label for="signUpTerms">I agree to the <a href="#" class="form-link">Terms & Conditions</a></label>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="signUpNewsletter" name="signUpNewsletter" aria-label="Subscribe to Newsletter">
+                                <label for="signUpNewsletter">Subscribe to our newsletter for updates!</label>
+                            </div>
+                            <button type="submit" class="cta-button auth-button">Register Now</button>
+                        </form>
+                        <p class="switch-prompt">Already have an account? <a href="#" class="form-link" data-target="signInForm">Log In Here</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+        <footer class="footer">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="Home page.html">Home</a></li>
+                <li><a href="about us page.html">About Us</a></li>
+                <li><a href="We are growing page.html">What We Grow</a></li>
+                <li><a href="farm tours page.html">Farm Tours</a></li>
+                <li><a href="blog page.html">Blog</a></li>
+                <li><a href="contac us page.html">Contact</a></li>
+            </ul>
+            <p>&copy; 2024 Nature's Bounty Farm. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.Instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.Twitter.com" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="Java.js"></script>
+</body>
+</html>

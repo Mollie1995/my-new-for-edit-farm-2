@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="my link.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="Images/Black_and_Green_Flat_Illustrated_Organic_Cosmetics_Logo-removebg-preview.png" type="image/x-icon">
+    <title>Our Blog - Nature's Bounty</title>
+</head>
+
+<body>
+
+
+    <div id="loading-screen">
+        <img src="Images/Black_and_Green_Flat_Illustrated_Organic_Cosmetics_Logo-removebg-preview.png" alt="Nature's Bounty Loading Logo" class="loading-logo">
+        <div class="loading-spinner"></div>
+    </div>
+
+
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <img src="Images/Black_and_Green_Flat_Illustrated_Organic_Cosmetics_Logo-removebg-preview.png" alt="Farm Logo">
+                </a>
+
+                <div class="menu-toggle" id="mobile-menu-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="Home page.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="about us page.html" class="mobile-dropdown-toggle">About Us <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                        <div class="dropdown-content mobile-dropdown-content">
+                            <a href="about us page.html#our-story">Our Story</a>
+                            <a href="about us page.html#our-team">Our Team</a>
+                            <a href="about us page.html#our-values">Our Values</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="We are growing page.html" class="mobile-dropdown-toggle">What We Grow <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                        <div class="dropdown-content mobile-dropdown-content">
+                            <a href="We are growing page.html#crops">Crops</a>
+                            <a href="We are growing page.html#livestock">Livestock</a>
+                            <a href="We are growing page.html#seasonal">Seasonal</a>
+                            <a href="We are growing page.html#products">Products</a>
+                        </div>
+                    </li>
+                    <li><a href="farm tours page.html">Farm Tours</a></li>
+                    <li><a href="blog page.html" class="active">Blog</a></li> 
+                    <li><a href="contac us page.html">Contact</a></li>
+                    <li><a href="visit page.html" class="cta-button">Visit Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero blog-hero" style="background-image: url('Images/Insights\ from\ the\ Farm.jpg');">
+            <div class="page-hero-overlay">
+                <h1>Insights from the Farm</h1>
+                <p>Dive into our latest stories, tips, and sustainable farming journeys.</p>
+            </div>
+        </section>
+
+        <section class="section-padding" id="blog-posts">
+            <div class="container">
+                <h2 class="section-title">Latest from Our Fields & Kitchens</h2>
+                <p class="section-description">
+                    Follow along as we share our experiences, knowledge, and passion for farming and wholesome living.
+                </p>
+
+                <div class="blog-grid">
+                    <article class="blog-post-card">
+                        <img src="Images/The Magic of Regenerative Agriculture.jpg" alt="Hands holding fresh soil and a plant seedling">
+                        <div class="post-content">
+                            <h3>The Magic of Regenerative Agriculture</h3>
+                            <p class="post-meta">By John Doe | June 15, 2025 | Farming</p>
+                            <p>Discover how our regenerative farming practices are healing the earth, one seed at a time. Learn about cover cropping, no-till methods, and biodiversity's role in a healthy farm ecosystem.</p>
+                            <a href="#" class="learn-more-button small">Read More</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-post-card">
+                        <img src="Images/Seasonal.jpg" alt="Basket of colorful fresh seasonal vegetables">
+                        <div class="post-content">
+                            <h3>Seasonal Eating: What's Ripe in Summer?</h3>
+                            <p class="post-meta">By Jane Smith | June 10, 2025 | Recipes</p>
+                            <p>Summer brings an explosion of flavors! We share our favorite recipes and tips for incorporating peak-season fruits and vegetables into your meals, from juicy tomatoes to sweet berries.</p>
+                            <a href="#" class="learn-more-button small">Read More</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-post-card">
+                        <img src="Images/The Life of Our Pastured Poultry.jpg" alt="Happy chickens roaming freely on green grass">
+                        <div class="post-content">
+                            <h3>The Life of Our Pastured Poultry</h3>
+                            <p class="post-meta">By Alex Green | May 28, 2025 | Livestock</p>
+                            <p>Our chickens live happy, healthy lives on pasture, contributing to both fantastic eggs and rich soil. Learn about our rotational grazing system and the benefits of true free-range poultry.</p>
+                            <a href="#" class="learn-more-button small">Read More</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-post-card">
+                        <img src="Images/Gardening with Kid.jpg" alt="Child harvesting carrots in a garden">
+                        <div class="post-content">
+                            <h3>Gardening with Kids: A Fun Family Activity</h3>
+                            <p class="post-meta">By Emily White | May 20, 2025 | Education</p>
+                            <p>Introduce your children to the joys of growing food! We provide practical tips for starting a family garden, making it a rewarding experience for all ages.</p>
+                            <a href="#" class="learn-more-button small">Read More</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-post-card">
+                        <img src="Images/The Buzz About Our Bees and Honey.jpg" alt="Bees flying around a beehive on a farm">
+                        <div class="post-content">
+                            <h3>The Buzz About Our Bees and Honey</h3>
+                            <p class="post-meta">By Mark Bee | May 1, 2025 | Products</p>
+                            <p>Our thriving bee colonies are essential pollinators for our crops and producers of delicious, raw honey. Learn about the lifecycle of bees and the benefits of local honey.</p>
+                            <a href="#" class="learn-more-button small">Read More</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-post-card">
+                        <img src="Images/Harvesting Heritage Grains for Superior Taste.jpg" alt="Farmer examining a healthy wheat field">
+                        <div class="post-content">
+                            <h3>Harvesting Heritage Grains for Superior Taste</h3>
+                            <p class="post-meta">By Sarah Brown | April 25, 2025 | Farming</p>
+                            <p>Explore the journey of our heritage grains, from planting to harvest. We delve into why these ancient varieties offer unique flavors and nutritional profiles compared to modern grains.</p>
+                            <a href="#" class="learn-more-button small">Read More</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="pagination">
+                      <a href="blog page.html#blog1" class="active">1</a>
+                    <a href="blog page.html.#blog2">2</a>
+                    <a href="blog page.html#3">3</a>
+                    <a href="#">Next &raquo;</a>
+                </div>
+
+            </div>
+        </section>
+
+       
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="Home page.html">Home</a></li>
+                <li><a href="about us page.html">About Us</a></li>
+                <li><a href="We are growing page.html">What We Grow</a></li>
+                <li><a href="farm tours page.html">Farm Tours</a></li>
+                <li><a href="blog page.html">Blog</a></li>
+                <li><a href="contac us page.html">Contact</a></li>
+            </ul>
+            <p>&copy; 2024 Nature's Bounty Farm. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.Instagram.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.Twitter.com" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="Java.js"></script>
+</body>
+</html>

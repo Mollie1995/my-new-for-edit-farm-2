@@ -1,0 +1,3203 @@
+/* --- Global Variables (if not already in your main CSS) --- */
+/* It's good practice to define these once in a main stylesheet */
+:root {
+    --primary-green: #4CAF50; /* A vibrant green for accents */
+    --dark-green: #2E7D32;    /* Darker green for headings, stronger accents */
+    --light-green: #8BC34A;   /* Lighter green for subtle highlights */
+    --bg-white: #FFFFFF;      /* White for card backgrounds, clean areas */
+    --bg-light: #F9F9F9;      /* Light grey for subtle section backgrounds */
+    --text-dark: #333333;     /* Dark grey for main body text */
+    --text-light: #666666;    /* Lighter grey for secondary text */
+    --border-color: #E0E0E0;  /* Light grey for borders */
+
+    --font-heading: 'Merriweather', serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+/* --- General Page Structure & Typography (reused from common styles) --- */
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 80px 0; /* Consistent padding for sections */
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.8em;
+    color: var(--dark-green);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    font-size: 1.1em;
+    color: var(--text-light);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+}
+
+.cta-button, .learn-more-button {
+    display: inline-block;
+    background-color: var(--primary-green);
+    color: var(--bg-white);
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover, .learn-more-button:hover {
+    background-color: var(--dark-green);
+    transform: translateY(-2px);
+}
+
+/* --- Header & Navigation (reused from common styles) --- */
+.header {
+    background-color: var(--bg-white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--dark-green);
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.logo img {
+    margin-right: 10px;
+}
+
+/* --- Logo Styling - Enhanced for Custom Logo Image --- */
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--dark-green);
+    text-decoration: none;
+    /* Add subtle padding and rounded corners to the clickable logo area */
+    padding: 8px 15px 8px 8px; /* Top, Right, Bottom, Left - more space around text */
+    border-radius: 12px; /* Softly rounded corners for the entire logo unit */
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Very light initial shadow */
+    position: relative; /* Ensure it respects z-index if needed */
+}
+
+.logo:hover {
+    transform: translateY(-3px); /* Slightly more pronounced lift on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Clearer shadow on hover */
+    background-color: rgba(255, 255, 255, 0.7); /* Subtle background highlight on hover */
+}
+
+.logo img {
+    margin-right: 12px; /* Good spacing between logo image and text */
+    height: 55px; /* Slightly larger height for impact */
+    width: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure no extra space below image */
+    /* REMOVE any previous border-radius or strong box-shadow that might have been applied here,
+       as they can distort a custom logo with a transparent background. */
+}
+
+/* Ensure the text within the logo is styled correctly */
+.logo span, .logo strong, .logo { /* Target the text if it's within a span/strong or directly in the a tag */
+    color: var(--dark-green);
+    white-space: nowrap; /* Prevent "Nature's Bounty" from breaking onto two lines */
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: color 0.3s ease;
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-green);
+}
+
+/* Underline effect for active/hover */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-green);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links .cta-button {
+    margin-left: 20px;
+}
+
+/* Dropdown Menu (Desktop) */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--bg-white);
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+    top: calc(100% + 10px); /* Position below the parent link */
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-content a {
+    color: var(--text-dark);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    white-space: nowrap;
+    font-weight: 400;
+    border-bottom: 1px solid var(--border-color); /* Separator */
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--bg-light);
+    color: var(--primary-green);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: var(--text-dark);
+    margin: 4px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Mobile Nav Specifics (hides desktop dropdown SVG) */
+.mobile-dropdown-toggle svg {
+    margin-left: 8px; /* Space between text and dropdown arrow */
+    vertical-align: middle;
+}
+
+/* Mobile menu open state */
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --- Page Hero Section (for internal pages) --- */
+.page-hero {
+    width: 100%;
+    height: 400px; /* Adjust height as needed */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    color: white;
+}
+
+.page-hero-overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Darker overlay for strong contrast */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.page-hero-overlay h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.page-hero-overlay p {
+    font-size: 1.3em;
+    max-width: 800px;
+    line-height: 1.5;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* --- Tour Introduction Section --- */
+.content-section {
+    background-color: var(--bg-white);
+}
+
+.content-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px; /* More space between text and image */
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.content-text {
+    flex: 1;
+    min-width: 300px; /* Ensures text doesn't get too narrow */
+    max-width: 55%; /* Text takes a bit more space than image */
+}
+
+.content-text h3 {
+    font-family: var(--font-heading);
+    font-size: 2em;
+    color: var(--dark-green);
+    margin-bottom: 20px;
+}
+
+.content-text p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    font-size: 1.05em;
+    color: var(--text-light);
+}
+
+.content-text ul {
+    list-style: none; /* Remove default list style */
+    padding-left: 0;
+    margin-top: 25px;
+}
+
+.content-text ul li {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+}
+
+.icon-feature {
+    color: var(--primary-green);
+    margin-right: 15px;
+    font-size: 1.4em; /* Larger icons */
+    width: 30px; /* Fixed width for alignment */
+    text-align: center;
+}
+
+.content-image {
+    max-width: 40%; /* Image takes less space */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+    object-fit: cover;
+}
+
+/* --- Types of Tours Section --- */
+.tour-types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Responsive grid for tour cards */
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.tour-card {
+    background-color: var(--bg-white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tour-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.tour-card img {
+    width: 100%;
+    height: 250px; /* Taller images for tour cards */
+    object-fit: cover;
+    border-bottom: 4px solid var(--primary-green); /* Thicker border */
+}
+
+.tour-card .card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.tour-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.7em;
+    color: var(--dark-green);
+    margin-bottom: 12px;
+}
+
+.tour-card p {
+    font-size: 1em;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.tour-features {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.tour-features li {
+    display: flex;
+    align-items: center;
+    font-size: 0.95em;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.tour-features li i {
+    color: var(--light-green); /* Use a lighter green for icons here */
+    margin-right: 10px;
+    font-size: 1.1em;
+    width: 20px; /* Fixed width for icon alignment */
+    text-align: center;
+}
+
+/* Specific styling for the smaller button in tour cards */
+.learn-more-button.small {
+    padding: 10px 20px;
+    font-size: 0.9em;
+    align-self: flex-start; /* Aligns button to the left */
+    margin-top: auto; /* Pushes button to the bottom of the card */
+}
+
+/* --- Booking & Visit Info Section --- */
+#booking-info {
+    background-color: var(--bg-white);
+}
+
+.booking-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.booking-item {
+    background-color: var(--bg-light);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.booking-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.booking-icon {
+    font-size: 3em;
+    color: var(--primary-green);
+    margin-bottom: 20px;
+}
+
+.booking-item h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    color: var(--dark-green);
+    margin-bottom: 15px;
+}
+
+.booking-item p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.booking-item .learn-more-button.small {
+    margin-top: 15px;
+    /* Already styled by .learn-more-button.small */
+}
+
+/* --- Call to Action Section (reused from common styles) --- */
+.call-to-action {
+    background-size: cover;
+    background-position: center;
+    color: var(--bg-white);
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+}
+
+.call-to-action::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    z-index: 1;
+}
+
+.call-to-action .container {
+    position: relative;
+    z-index: 2;
+}
+
+.call-to-action h2 {
+    font-family: var(--font-heading);
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.call-to-action p {
+    font-size: 1.2em;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* --- Footer Styling --- */
+.footer {
+    background-color: var(--dark-green);
+    color: white;
+    padding: 40px 0 20px 0; /* More padding on top */
+    text-align: center;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Space between elements */
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; /* Allows links to wrap to new line */
+    justify-content: center;
+    gap: 15px 30px; /* Vertical and horizontal gap */
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white; /* Solid white on hover */
+}
+
+.footer p {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.8em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--light-green); /* Light green on hover */
+    transform: scale(1.1); /* Slightly enlarge icon on hover */
+}
+
+
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .section-padding {
+        padding: 60px 0; /* Reduce padding on medium screens */
+    }
+
+    .section-title {
+        font-size: 2.2em;
+    }
+
+    .section-description {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+
+    /* Mobile Navigation */
+    .nav-links {
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 80px; /* Position below the header */
+        left: 0;
+        background-color: var(--bg-white);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        padding-bottom: 20px;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show when active */
+    }
+
+    .nav-links li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color); /* Separator for list items */
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a {
+        padding: 15px 0;
+        display: block; /* Makes the entire area clickable */
+        color: var(--text-dark); /* Ensure readable on mobile menu */
+    }
+
+    .cta-button {
+        width: calc(100% - 40px); /* Full width button with padding */
+        margin: 15px 20px 0;
+    }
+
+    .menu-toggle {
+        display: flex; /* Show hamburger icon */
+    }
+
+    /* Mobile specific dropdown styles */
+    .dropdown .mobile-dropdown-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .dropdown-content.mobile-dropdown-content {
+        position: static; /* Allows content to flow naturally within the menu */
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        background-color: var(--bg-light); /* Slightly different background for sub-menu */
+        border-top: 1px solid var(--border-color);
+        padding-top: 0;
+        padding-bottom: 0;
+        display: none; /* Hidden by default for mobile toggle */
+    }
+
+    .mobile-dropdown-content a {
+        padding: 10px 0 10px 30px; /* Indent sub-links */
+    }
+
+    .dropdown.active .mobile-dropdown-content {
+        display: block; /* Show on active dropdown */
+    }
+
+    /* Slider adjustments */
+    .slider-container {
+        height: 450px; /* Shorter height on smaller screens */
+    }
+
+    .slide-content-overlay h2 {
+        font-size: 2em;
+    }
+
+    .slide-content-overlay p {
+        font-size: 1em;
+        padding: 0 10px; /* Less padding on smaller screens */
+    }
+
+    .learn-more-button {
+        padding: 12px 25px;
+        font-size: 0.9em;
+    }
+
+    .slider-nav-button {
+        padding: 10px 15px;
+        font-size: 1.5em;
+        width: 50px;
+        height: 50px;
+    }
+
+    .prev-button {
+        left: 10px;
+    }
+
+    .next-button {
+        right: 10px;
+    }
+
+    .slider-dots {
+        bottom: 10px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    /* About Section adjustments */
+    .about-content {
+        flex-direction: column; /* Stack image and text vertically */
+    }
+
+    .about-content img,
+    .about-text {
+        max-width: 100%; /* Full width for both on small screens */
+        text-align: center;
+    }
+
+    .about-content img {
+        margin-bottom: 30px;
+    }
+    
+    .about-text h3 {
+        font-size: 1.7em;
+    }
+
+    /* Offerings Grid adjustment */
+    .offerings-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+
+    /* Call to Action before footer adjustments */
+    section.call-to-action h2 {
+        font-size: 2.5em;
+    }
+
+    section.call-to-action p {
+        font-size: 1.1em;
+    }
+
+    section.call-to-action .cta-button {
+        padding: 15px 30px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-padding {
+        padding: 50px 0;
+    }
+    
+    .slider-container {
+        height: 350px; /* Even shorter slider height on very small screens */
+    }
+
+    .slide-content-overlay h2 {
+        font-size: 1.8em;
+    }
+
+    .slide-content-overlay p {
+        font-size: 0.9em;
+    }
+
+    .about-content img {
+        width: 90%; /* Adjust image size for smaller screens */
+    }
+
+    section.call-to-action h2 {
+        font-size: 2em;
+    }
+
+    section.call-to-action p {
+        font-size: 0.9em;
+    }
+
+    .footer-links {
+        flex-direction: column; /* Stack footer links vertically */
+        gap: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Page Hero Section --- */
+.page-hero {
+    width: 100%;
+    height: 400px; /* Adjust height as needed */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    color: white;
+}
+
+.page-hero-overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Darker overlay for strong contrast */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.page-hero-overlay h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.page-hero-overlay p {
+    font-size: 1.3em;
+    max-width: 800px;
+    line-height: 1.5;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* --- Content Sections (Crops & Livestock) --- */
+.content-section {
+    background-color: var(--bg-white);
+}
+
+.content-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px; /* More space between text and image */
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.content-text {
+    flex: 1;
+    min-width: 300px; /* Ensures text doesn't get too narrow */
+    max-width: 55%; /* Text takes a bit more space than image */
+}
+
+.content-text h3 {
+    font-family: var(--font-heading);
+    font-size: 2em;
+    color: var(--dark-green);
+    margin-bottom: 20px;
+}
+
+.content-text p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    font-size: 1.05em;
+    color: var(--text-light);
+}
+
+.content-text ul {
+    list-style: none; /* Remove default list style */
+    padding-left: 0;
+    margin-top: 25px;
+}
+
+.content-text ul li {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: var(--text-dark);
+    display: flex;
+    align-items: flex-start; /* Align icon to top of text */
+}
+
+.icon-feature {
+    color: var(--primary-green);
+    margin-right: 15px;
+    font-size: 1.4em; /* Larger icons */
+    width: 30px; /* Fixed width for alignment */
+    text-align: center;
+    flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.content-image {
+    max-width: 40%; /* Image takes less space */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+    object-fit: cover;
+}
+
+.content-section.reverse-layout .content-grid {
+    flex-direction: row-reverse; /* Swap order for image on left */
+}
+
+/* --- Seasonal Produce Section --- */
+.seasonal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.season-card {
+    background-color: var(--bg-white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.season-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.season-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 4px solid var(--primary-green);
+}
+
+.season-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6em;
+    color: var(--dark-green);
+    margin: 20px 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.season-card .value-icon {
+    font-size: 1.2em;
+    color: var(--primary-green);
+    margin-right: 10px;
+}
+
+.season-card p {
+    font-size: 1em;
+    color: var(--text-light);
+    padding: 0 20px 20px;
+    line-height: 1.6;
+    flex-grow: 1; /* Allows paragraph to take available space */
+}
+
+/* --- Products Section --- */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.product-card {
+    background-color: var(--bg-white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--light-green); /* Lighter border for products */
+}
+
+.product-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5em;
+    color: var(--dark-green);
+    margin: 20px 0 10px;
+}
+
+.product-card p {
+    font-size: 0.95em;
+    color: var(--text-light);
+    padding: 0 20px 20px;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.learn-more-button.small {
+    padding: 10px 20px;
+    font-size: 0.9em;
+    margin: 0 auto 20px auto; /* Center the button */
+}
+
+
+/* --- Call to Action Section --- */
+.call-to-action {
+    background-size: cover;
+    background-position: center;
+    color: var(--bg-white);
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+}
+
+.call-to-action::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    z-index: 1;
+}
+
+.call-to-action .container {
+    position: relative;
+    z-index: 2;
+}
+
+.call-to-action h2 {
+    font-family: var(--font-heading);
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.call-to-action p {
+    font-size: 1.2em;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+
+
+
+
+
+
+/* --- Blog Page Specific Styles --- */
+
+/* Hero section for blog - specific background image */
+.blog-hero {
+    background-image: url('Images/blog_hero.webp'); /* Add your blog hero image here */
+    background-size: cover;
+    background-position: center;
+    height: 450px; /* Slightly taller hero for blog */
+}
+
+/* Blog Grid */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px; /* Increased gap for better spacing */
+    margin-top: 50px;
+}
+
+.blog-post-card {
+    background-color: var(--bg-white);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow for cards */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-10px); /* More pronounced lift on hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.blog-post-card img {
+    width: 100%;
+    height: 220px; /* Consistent image height for cards */
+    object-fit: cover;
+    border-bottom: 5px solid var(--primary-green); /* Green border at the bottom of image */
+}
+
+.blog-post-card .post-content {
+    padding: 25px;
+    flex-grow: 1; /* Allows content to take available space */
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-post-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    color: var(--dark-green);
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.blog-post-card .post-meta {
+    font-size: 0.9em;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.blog-post-card p {
+    font-size: 1em;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    line-height: 1.6;
+    flex-grow: 1; /* Pushes button to the bottom */
+}
+
+.blog-post-card .learn-more-button {
+    align-self: flex-start; /* Align button to the left */
+    padding: 12px 25px;
+    font-size: 0.95em;
+    border-radius: 5px;
+}
+
+/* Pagination */
+.pagination {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 12px 18px;
+    margin: 0 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    text-decoration: none;
+    color: var(--dark-green);
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.pagination a:hover,
+.pagination a.active {
+    background-color: var(--primary-green);
+    color: var(--bg-white);
+    border-color: var(--primary-green);
+}
+
+/* Newsletter CTA Section */
+.newsletter-cta {
+    background-size: cover;
+    background-position: center;
+    color: var(--bg-white);
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+}
+
+.newsletter-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    z-index: 1;
+}
+
+.newsletter-cta .page-hero-overlay { /* Reusing overlay styles but adjust for CTA */
+    background: none; /* No extra background for the overlay div itself */
+    padding: 0;
+}
+
+.newsletter-cta h2 {
+    font-family: var(--font-heading);
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    position: relative; /* Ensure it's above the overlay */
+    z-index: 2;
+}
+
+.newsletter-cta p {
+    font-size: 1.2em;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    position: relative;
+    z-index: 2;
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 40px;
+    position: relative;
+    z-index: 2;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.newsletter-form input[type="email"] {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    width: 350px; /* Fixed width for input */
+    max-width: 80%; /* Ensure it doesn't overflow */
+    font-size: 1em;
+    color: var(--text-dark);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-form .cta-button {
+    padding: 15px 30px;
+    font-size: 1em;
+}
+
+
+/* --- Responsive Adjustments for Blog Page --- */
+@media (max-width: 992px) {
+    .blog-hero {
+        height: 350px;
+    }
+
+    .blog-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    .blog-post-card h3 {
+        font-size: 1.6em;
+    }
+
+    .newsletter-cta h2 {
+        font-size: 2.4em;
+    }
+
+    .newsletter-cta p {
+        font-size: 1.1em;
+    }
+
+    .newsletter-form input[type="email"] {
+        width: 100%;
+        margin-bottom: 15px; /* Add space when stacked */
+    }
+
+    .newsletter-form {
+        flex-direction: column; /* Stack input and button */
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-hero {
+        height: 280px;
+    }
+
+    .blog-hero h1 {
+        font-size: 2.5em;
+    }
+
+    .blog-post-card img {
+        height: 200px;
+    }
+
+    .blog-post-card h3 {
+        font-size: 1.4em;
+    }
+
+    .blog-post-card .post-content {
+        padding: 20px;
+    }
+
+    .newsletter-cta h2 {
+        font-size: 2em;
+    }
+
+    .newsletter-cta p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 576px) {
+    .blog-hero {
+        height: 220px;
+    }
+
+    .blog-hero h1 {
+        font-size: 2em;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        gap: 25px;
+    }
+
+    .blog-post-card img {
+        height: 180px;
+    }
+
+    .blog-post-card h3 {
+        font-size: 1.2em;
+    }
+
+    .newsletter-cta h2 {
+        font-size: 1.8em;
+    }
+
+    .newsletter-cta p {
+        font-size: 0.9em;
+    }
+
+    .newsletter-form input[type="email"] {
+        padding: 12px 15px;
+        font-size: 0.9em;
+    }
+
+    .newsletter-form .cta-button {
+        padding: 12px 25px;
+        font-size: 0.9em;
+    }
+}
+
+
+
+
+
+/* --- Contact Information Section - CLEAN & DEFINED BLOCKS STYLE --- */
+
+.contact-info-section {
+    background-color: var(--bg-light); /* Simple, clean light background */
+    padding: 90px 0; /* Standard padding */
+    position: relative;
+    overflow: hidden;
+    color: var(--text-dark); /* Default text color for the section */
+}
+
+/* No complex ::before pattern for this style, keep it clean */
+.contact-info-section::before {
+    content: none; /* Remove any previous ::before patterns */
+}
+
+/* Revert section title/description colors to standard if previously changed for dark background */
+.contact-info-section .section-title,
+.contact-info-section .section-description {
+    color: var(--dark-green); /* Back to dark green for readability on light background */
+    text-shadow: none; /* Remove text shadow */
+}
+
+/* Revert the underline color for section title */
+.contact-info-section .section-title::after {
+    background-color: var(--primary-green); /* Back to primary green underline */
+}
+
+
+.contact-grid {
+    display: grid;
+    /* Grid with slightly larger min-width for cleaner blocks, still aiming for 3 columns */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* Consistent spacing between cards */
+    margin-top: 50px;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-card {
+    background-color: var(--bg-white); /* Pure white background for crispness */
+    border-radius: 8px; /* Sharper, cleaner corners */
+    padding: 30px 25px; /* Ample padding inside the card */
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Lighter, subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid var(--border-color); /* Clean, thin default border */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Remove any top accent border for this style */
+.contact-card::before {
+    content: none; /* Remove any previous ::before accent */
+}
+
+.contact-card:hover {
+    transform: translateY(-3px); /* Subtle lift on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* Slightly more prominent shadow */
+    border-color: var(--primary-green); /* Border highlights on hover */
+}
+
+.contact-card .icon-feature {
+    font-size: 2.8em; /* Good size for icons */
+    color: var(--primary-green);
+    margin-bottom: 18px; /* Space below icon */
+    /* Add a subtle circle around the icon */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgba(76, 175, 80, 0.08); /* Light background for the circle */
+    border: 1px solid rgba(76, 175, 80, 0.2);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-card:hover .icon-feature {
+    background-color: rgba(76, 175, 80, 0.15); /* Darker background on hover */
+    border-color: var(--primary-green);
+}
+
+.contact-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6em; /* Clear heading */
+    color: var(--dark-green);
+    margin-bottom: 10px; /* Reduced space below heading */
+    position: relative;
+    padding-bottom: 5px; /* Space for subtle underline */
+}
+
+.contact-card h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 40px; /* Shorter, thinner underline for card heading */
+    height: 2px;
+    background-color: var(--primary-green);
+    border-radius: 1px;
+    opacity: 0.8;
+}
+
+.contact-card p {
+    color: var(--text-dark);
+    margin-bottom: 6px; /* Tighter line spacing */
+    line-height: 1.4;
+    font-size: 0.9em; /* Readable text size */
+}
+
+.contact-card p a {
+    color: var(--primary-green);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-card p a:hover {
+    color: var(--dark-green);
+    text-decoration: underline;
+}
+
+.contact-card .learn-more-button {
+    margin-top: 20px; /* Space above button */
+    display: inline-block;
+    padding: 8px 20px; /* More compact button */
+    font-size: 0.85em; /* Smaller button font */
+    font-weight: 600;
+    border-radius: 6px; /* Slightly less rounded button */
+    background-color: var(--primary-green);
+    color: var(--bg-white);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Lighter button shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-card .learn-more-button:hover {
+    background-color: var(--dark-green);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.contact-card .learn-more-button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+
+/* --- Responsive Adjustments for CLEAN & DEFINED BLOCKS STYLE --- */
+
+@media (max-width: 992px) {
+    .contact-info-section {
+        padding: 70px 0;
+    }
+
+    .contact-grid {
+        gap: 25px;
+    }
+
+    .contact-card {
+        padding: 25px 20px;
+    }
+
+    .contact-card .icon-feature {
+        font-size: 2.5em;
+        width: 55px;
+        height: 55px;
+        margin-bottom: 15px;
+    }
+
+    .contact-card h3 {
+        font-size: 1.5em;
+        margin-bottom: 8px;
+    }
+
+    .contact-card p {
+        font-size: 0.88em;
+    }
+
+    .contact-card .learn-more-button {
+        padding: 7px 18px;
+        font-size: 0.8em;
+        margin-top: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-info-section {
+        padding: 50px 0;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically on smaller screens */
+        gap: 20px;
+        max-width: 350px; /* Constrain stacked cards */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact-card {
+        padding: 20px 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Slightly lighter shadow when stacked */
+    }
+
+    .contact-card .icon-feature {
+        font-size: 2.2em;
+        width: 50px;
+        height: 50px;
+    }
+
+    .contact-card h3 {
+        font-size: 1.4em;
+    }
+
+    .contact-card p {
+        font-size: 0.85em;
+    }
+
+    .contact-card .learn-more-button {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-info-section {
+        padding: 35px 0;
+    }
+
+    .contact-grid {
+        gap: 15px;
+    }
+
+    .contact-card {
+        padding: 18px 12px;
+    }
+
+    .contact-card .icon-feature {
+        font-size: 2em;
+        width: 45px;
+        height: 45px;
+        margin-bottom: 10px;
+    }
+
+    .contact-card h3 {
+        font-size: 1.2em;
+    }
+
+    .contact-card p {
+        font-size: 0.8em;
+    }
+
+    .contact-card .learn-more-button {
+        padding: 6px 15px;
+        font-size: 0.75em;
+        margin-top: 10px;
+    }
+}
+
+/* --- Contact Page Specific Styles --- */
+
+/* Hero section for contact - specific background image */
+.contact-hero {
+    background-image: url('Images/contact_hero.webp'); /* Add your contact hero image here */
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Consistent hero height */
+}
+
+/* Contact Information Grid */
+.contact-info-section {
+    background-color: var(--bg-white);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.contact-card {
+    background-color: var(--bg-light);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.contact-card .icon-feature {
+    font-size: 3em; /* Larger icons */
+    color: var(--primary-green);
+    margin-bottom: 20px;
+}
+
+.contact-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    color: var(--dark-green);
+    margin-bottom: 15px;
+}
+
+.contact-card p {
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.contact-card a {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.contact-card a:hover {
+    color: var(--dark-green);
+}
+
+.contact-card .learn-more-button.small {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 0.9em;
+}
+
+
+/* --- Contact Form Section COMPACT STYLE --- */
+
+.contact-form-section {
+    background-color: var(--bg-light); /* Keeps the light background for the section */
+    padding: 60px 0; /* Slightly reduced overall section padding */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Very subtle background texture (optional, can be removed for pure flatness) */
+.contact-form-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0deg, rgba(0,0,0,0.005) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.7;
+    z-index: 0;
+}
+
+.contact-form-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-form {
+    max-width: 580px; /* Significantly narrower for a compact look */
+    margin: 40px auto 0 auto; /* Reduced space from title */
+    background-color: var(--bg-white);
+    padding: 35px 30px; /* Reduced padding inside the form */
+    border-radius: 8px; /* Slightly less rounded */
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07); /* Lighter, subtle shadow */
+    border: 1px solid var(--border-color);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-form:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Slightly more pronounced shadow on hover */
+    border-color: var(--primary-green);
+}
+
+.form-group {
+    margin-bottom: 20px; /* More compact spacing between form groups */
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px; /* Closer to input */
+    color: var(--dark-green);
+    font-size: 0.95em; /* Smaller label font */
+    text-transform: uppercase;
+    letter-spacing: 0.04em; /* Slightly adjusted spacing for smaller uppercase */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="subject"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px; /* Reduced padding inside inputs */
+    border: 1px solid var(--border-color);
+    border-radius: 5px; /* Slightly less rounded inputs */
+    font-family: var(--font-body);
+    font-size: 0.95em; /* Smaller input text size */
+    color: var(--text-dark);
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--bg-white);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-light);
+    opacity: 0.7;
+    font-style: italic;
+    font-size: 0.9em; /* Smaller placeholder text */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.15); /* Softer glow on focus */
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px; /* Reduced textarea height */
+}
+
+.contact-form .cta-button {
+    width: auto;
+    display: block;
+    margin: 30px auto 0 auto; /* Reduced space above button */
+    padding: 12px 35px; /* Smaller button size */
+    font-size: 0.95em; /* Smaller button text */
+    font-weight: 700;
+    border-radius: 6px;
+    background-color: var(--primary-green);
+    color: var(--bg-white);
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08); /* Smaller shadow for button */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form .cta-button:hover {
+    background-color: var(--dark-green);
+    transform: translateY(-1px); /* More subtle lift on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.contact-form .cta-button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Responsive Adjustments for COMPACT style --- */
+@media (max-width: 992px) {
+    .contact-form-section {
+        padding: 50px 0;
+    }
+
+    .contact-form {
+        max-width: 500px; /* Adjust max-width further */
+        padding: 30px 25px;
+    }
+
+    .form-group label {
+        font-size: 0.9em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .form-group textarea {
+        min-height: 90px;
+    }
+
+    .contact-form .cta-button {
+        padding: 10px 30px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-form-section {
+        padding: 40px 0;
+    }
+
+    .contact-form {
+        padding: 25px 20px;
+        margin-top: 30px;
+        max-width: 90%; /* Allow it to scale more on small screens */
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        font-size: 0.85em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 8px;
+        font-size: 0.85em;
+    }
+
+    .form-group textarea {
+        min-height: 80px;
+    }
+
+    .contact-form .cta-button {
+        padding: 8px 25px;
+        font-size: 0.85em;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-form-section {
+        padding: 30px 0;
+    }
+
+    .contact-form {
+        padding: 20px 15px;
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    .form-group label {
+        font-size: 0.8em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 7px;
+        font-size: 0.8em;
+    }
+
+    .form-group textarea {
+        min-height: 70px;
+    }
+
+    .contact-form .cta-button {
+        padding: 7px 20px;
+        font-size: 0.8em;
+    }
+}
+
+
+
+
+/* --- Payment Information Section COMPACT STYLE --- */
+
+.payment-info-section {
+    background-color: var(--bg-light); /* Light background for the section */
+    padding: 60px 0; /* Reduced overall section padding */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle background pattern (optional, can be removed for pure flatness) */
+.payment-info-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(45deg, rgba(76, 175, 80, 0.02) 25%, transparent 25%, transparent 75%, rgba(76, 175, 80, 0.02) 75%, rgba(76, 175, 80, 0.02) 100%),
+                      linear-gradient(-45deg, rgba(76, 175, 80, 0.02) 25%, transparent 25%, transparent 75%, rgba(76, 175, 80, 0.02) 75%, rgba(76, 175, 80, 0.02) 100%);
+    background-size: 30px 30px; /* Smaller pattern */
+    z-index: 0;
+}
+
+.payment-info-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.payment-grid {
+    display: grid;
+    /* Adjust minmax to control card size; smaller min-width for compact feel */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* Reduced gap between cards */
+    margin-top: 40px; /* Reduced margin from section description */
+    justify-content: center;
+}
+
+.payment-card {
+    background: linear-gradient(145deg, var(--bg-white) 0%, #fbfbfb 100%);
+    border-radius: 12px; /* Slightly less rounded corners */
+    padding: 30px; /* Reduced padding inside the card */
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.09); /* Softer, smaller shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(76, 175, 80, 0.15); /* Lighter green border */
+    overflow: hidden;
+    position: relative;
+}
+
+.payment-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; /* Thinner accent border on top */
+    background: linear-gradient(90deg, var(--primary-green), var(--dark-green));
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.payment-card:hover {
+    transform: translateY(-5px); /* More subtle lift on hover */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); /* Slightly more prominent shadow on hover */
+    border-color: var(--primary-green);
+}
+
+.payment-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8em; /* Smaller heading size */
+    color: var(--dark-green);
+    margin-bottom: 20px; /* Reduced bottom margin */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px; /* Reduced gap between icon and text */
+}
+
+.payment-card .value-icon {
+    font-size: 1.8em; /* Smaller icons */
+    color: var(--primary-green);
+}
+
+.payment-card p {
+    color: var(--text-dark);
+    margin-bottom: 10px; /* Tighter line spacing */
+    line-height: 1.5;
+    font-size: 0.95em; /* Smaller text size */
+}
+
+.payment-card strong {
+    color: var(--primary-green);
+    font-weight: 700;
+}
+
+.payment-card .note {
+    font-size: 0.85em; /* Smaller note text */
+    color: var(--text-light);
+    margin-top: 15px; /* Reduced top margin */
+    font-style: italic;
+    border-top: 1px dashed rgba(0, 0, 0, 0.08); /* Lighter dashed line */
+    padding-top: 12px; /* Reduced padding */
+}
+
+.qr-code-container {
+    padding: 20px 0; /* Reduced padding around QR code */
+}
+
+.qr-code {
+    max-width: 160px; /* Smaller QR code image */
+    height: auto;
+    border: 6px solid var(--primary-green); /* Thinner border */
+    border-radius: 8px; /* Less rounded corners for QR code */
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Smaller shadow for QR code */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.qr-code:hover {
+    transform: scale(1.02); /* More subtle zoom on hover */
+    border-color: var(--dark-green);
+}
+
+
+/* --- Responsive Adjustments for COMPACT Payment Info --- */
+@media (max-width: 992px) {
+    .payment-info-section {
+        padding: 50px 0;
+    }
+
+    .payment-grid {
+        gap: 25px;
+    }
+
+    .payment-card {
+        padding: 25px;
+    }
+
+    .payment-card h3 {
+        font-size: 1.6em;
+    }
+
+    .payment-card .value-icon {
+        font-size: 1.6em;
+    }
+
+    .payment-card p {
+        font-size: 0.9em;
+    }
+
+    .qr-code {
+        max-width: 140px;
+        border-width: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .payment-info-section {
+        padding: 40px 0;
+    }
+
+    .payment-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically on small screens */
+        gap: 30px;
+    }
+
+    .payment-card {
+        padding: 20px;
+        max-width: 400px; /* Constrain width on small screens when stacked */
+        margin: 0 auto;
+    }
+
+    .payment-card h3 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    .payment-card .value-icon {
+        font-size: 1.5em;
+    }
+
+    .payment-card p {
+        font-size: 0.88em;
+    }
+
+    .qr-code {
+        max-width: 120px;
+        border-width: 4px;
+    }
+}
+
+@media (max-width: 576px) {
+    .payment-info-section {
+        padding: 30px 0;
+    }
+
+    .payment-grid {
+        gap: 25px;
+    }
+
+    .payment-card {
+        padding: 18px;
+    }
+
+    .payment-card h3 {
+        font-size: 1.4em;
+    }
+
+    .payment-card .value-icon {
+        font-size: 1.4em;
+    }
+
+    .payment-card p {
+        font-size: 0.85em;
+    }
+
+    .payment-card .note {
+        font-size: 0.8em;
+    }
+
+    .qr-code {
+        max-width: 100px;
+        border-width: 3px;
+    }
+}
+
+
+.small-cta-button {
+    padding: 8px 20px !important; /* Adjust as needed */
+    font-size: 0.85em !important; /* Adjust as needed */
+    margin-top: 20px !important; /* Space from above content */
+}
+
+/* Add icon styling if not already present for .fas */
+.small-cta-button .fas {
+    margin-right: 8px;
+}
+
+
+
+
+
+/* Hamburger menu for mobile */
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: var(--text-dark);
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Active state for mobile menu toggle (for 'X' icon) */
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --- NEW: Hero Banner for Visit Page --- */
+.visit-hero-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('Images/Plan\ Your\ Visit\ 1.jpg'); /* Placeholder image */
+    background-size: cover;
+    background-position: center;
+    color: var(--bg-light);
+    text-align: center;
+    padding: 120px 0; /* More vertical space */
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visit-hero-banner h1 {
+    font-family: var(--font-heading);
+    font-size: 3.8em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.visit-hero-banner .lead {
+    font-size: 1.4em;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* --- NEW: Visit Details Section with Diamond Pattern Background --- */
+.visit-details-section {
+    position: relative;
+    z-index: 1; /* Ensure content is above background pattern */
+    color: var(--text-dark);
+    padding: 100px 0; /* More padding for this section */
+}
+
+.diamond-pattern-bg {
+    background-color: var(--bg-white); /* Base color for pattern */
+    background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23e0ffe0" fill-opacity="0.5"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0 20v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 22v-4H4v4H0v2h4v4h2v-4h4v-2H6zm0 20v-4H4v4H0v2h4v4h2v-4h4v-2H6zM36 0v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 0v-4H4v4H0v2h4v4h2v-4h4v-2H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+    background-size: 60px 60px;
+}
+
+.visit-details-section .section-title,
+.visit-details-section .section-description {
+    color: var(--dark-green);
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    margin-top: 50px;
+}
+
+.detail-card {
+    background-color: var(--bg-white);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.detail-card .icon-feature {
+    font-size: 3em;
+    color: var(--primary-green);
+    margin-bottom: 20px;
+}
+
+.detail-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6em;
+    color: var(--dark-green);
+    margin-bottom: 15px;
+}
+
+.detail-card p {
+    font-size: 1em;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.detail-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+    text-align: left;
+    color: var(--text-dark);
+}
+
+.detail-card ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+.detail-card ul li::before {
+    content: "\f00c"; /* Font Awesome checkmark icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: var(--primary-green);
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 0.9em;
+}
+
+.detail-card .note {
+    font-size: 0.85em;
+    color: var(--text-light);
+    margin-top: 15px;
+    font-style: italic;
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
+    padding-top: 12px;
+}
+
+.call-to-action-panel {
+    background-color: var(--primary-green);
+    color: var(--text-white);
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 80px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.call-to-action-panel h3 {
+    font-family: var(--font-heading);
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    color: var(--text-white);
+}
+
+.call-to-action-panel p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.call-to-action-panel .cta-button {
+    background-color: var(--accent-yellow); /* Different color for emphasis */
+    color: var(--dark-green);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.call-to-action-panel .cta-button:hover {
+    background-color: #FFD700; /* Lighter yellow on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+
+/* --- Responsive Adjustments for New Sections --- */
+@media (max-width: 992px) {
+    .visit-hero-banner {
+        padding: 100px 0;
+        min-height: 400px;
+    }
+    .visit-hero-banner h1 {
+        font-size: 3em;
+    }
+    .visit-hero-banner .lead {
+        font-size: 1.2em;
+    }
+
+    .visit-details-section {
+        padding: 80px 0;
+    }
+    .details-grid {
+        gap: 30px;
+    }
+    .detail-card {
+        padding: 25px;
+    }
+    .detail-card .icon-feature {
+        font-size: 2.5em;
+    }
+    .detail-card h3 {
+        font-size: 1.4em;
+    }
+    .detail-card p {
+        font-size: 0.95em;
+    }
+    .call-to-action-panel {
+        padding: 35px 25px;
+    }
+    .call-to-action-panel h3 {
+        font-size: 2em;
+    }
+    .call-to-action-panel p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .visit-hero-banner {
+        padding: 80px 0;
+        min-height: 350px;
+    }
+    .visit-hero-banner h1 {
+        font-size: 2.5em;
+    }
+    .visit-hero-banner .lead {
+        font-size: 1em;
+    }
+
+    .visit-details-section {
+        padding: 60px 0;
+    }
+    .details-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically */
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .detail-card {
+        padding: 20px;
+    }
+    .detail-card .icon-feature {
+        font-size: 2.2em;
+    }
+    .detail-card h3 {
+        font-size: 1.3em;
+    }
+    .detail-card p {
+        font-size: 0.9em;
+    }
+    .call-to-action-panel {
+        padding: 30px 20px;
+        margin-top: 60px;
+    }
+    .call-to-action-panel h3 {
+        font-size: 1.8em;
+    }
+    .call-to-action-panel p {
+        font-size: 0.9em;
+    }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+        display: flex; /* Show on mobile */
+    }
+
+    .nav-links {
+        display: none; /* Hide by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--bg-white);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        padding: 20px 0;
+        border-top: 1px solid var(--border-color);
+        animation: slideDown 0.3s ease-out forwards; /* Add animation */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show when active */
+    }
+
+    .nav-links li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    /* Mobile dropdown specific overrides */
+    .dropdown-content.mobile-dropdown-content {
+        position: static; /* Make dropdown content flow normally */
+        box-shadow: none;
+        background-color: transparent;
+        border-radius: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        width: 100%;
+        padding: 0;
+    }
+
+    .dropdown-content.mobile-dropdown-content a {
+        padding: 8px 16px; /* Smaller padding for mobile dropdown links */
+        color: var(--text-dark);
+        background-color: rgba(0,0,0,0.03); /* Subtle background for sub-items */
+        font-size: 0.95em;
+        font-weight: normal;
+    }
+
+    .dropdown-content.mobile-dropdown-content a:hover {
+        background-color: rgba(0,0,0,0.08);
+    }
+
+    .mobile-dropdown-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 2.2em;
+    }
+    .section-description {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+
+    .visit-hero-banner {
+        padding: 60px 0;
+        min-height: 300px;
+    }
+    .visit-hero-banner h1 {
+        font-size: 2em;
+    }
+    .visit-hero-banner .lead {
+        font-size: 0.95em;
+    }
+
+    .visit-details-section {
+        padding: 40px 0;
+    }
+    .details-grid {
+        gap: 20px;
+    }
+    .detail-card {
+        padding: 18px;
+    }
+    .detail-card .icon-feature {
+        font-size: 2em;
+    }
+    .detail-card h3 {
+        font-size: 1.2em;
+    }
+    .detail-card p {
+        font-size: 0.88em;
+    }
+    .detail-card ul li {
+        font-size: 0.85em;
+    }
+    .call-to-action-panel {
+        padding: 25px 15px;
+        margin-top: 40px;
+    }
+    .call-to-action-panel h3 {
+        font-size: 1.5em;
+    }
+    .call-to-action-panel p {
+        font-size: 0.85em;
+    }
+}
+
+
+/* --- Loading Screen Styles --- */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-white); /* Light background, consistent with your theme */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it's on top of everything */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.6s ease-out, visibility 0.6s ease-out; /* Smooth fade-out */
+}
+
+#loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Allows clicks on content underneath once hidden */
+}
+
+.loading-logo {
+    width: 100px; /* Adjust size as needed for your logo */
+    height: auto;
+    margin-bottom: 25px; /* Space between logo and spinner */
+    animation: bounce 2s infinite ease-in-out; /* Gentle bouncing animation */
+}
+
+.loading-spinner {
+    border: 5px solid var(--light-green); /* Light green border */
+    border-top: 5px solid var(--primary-green); /* Darker green for the spinning part */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite; /* Spinner rotation animation */
+}
+
+/* Keyframe Animations */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); } /* Adjust bounce height */
+}
+
+
+
+
+/* --- Modal (Pop-up) Styles --- */
+.modal {
+    display: none; /* Hidden by default - JavaScript will toggle 'active' class */
+    position: fixed; /* Stay in place when scrolling */
+    z-index: 1000; /* On top of everything */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if content is too long */
+    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+    backdrop-filter: blur(5px); /* Optional: Blurs content behind the modal */
+    display: flex; /* Use flexbox for easy centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    opacity: 0; /* Initial opacity for fade-in effect */
+    visibility: hidden; /* Hide until active */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for the overlay */
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 600px; /* Max width of the content box */
+    width: 90%; /* Responsive width */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative; /* Needed for positioning the close button */
+    text-align: center;
+    transform: translateY(-50px); /* Initial position for animation (moves up from below) */
+    transition: transform 0.3s ease-out; /* Slide-in animation for the content */
+}
+
+.modal.active .modal-content {
+    transform: translateY(0); /* Final position for animation (slides into view) */
+}
+
+.modal-content h3 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+}
+
+.modal-content p {
+    color: #555;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.close-button {
+    color: #aaaaaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 36px; /* Larger 'X' */
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333333;
+    text-decoration: none;
+}
+
+.modal-button {
+    display: inline-block;
+    background-color: #4CAF50; /* Green button */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+    margin-top: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+/* --- Responsive Design (Media Queries) --- */
+@media (max-width: 992px) {
+    .section-title {
+        font-size: 2.2em;
+    }
+    .about-content { /* Assuming this is on your home page, if present on blog, adjust */
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-content img { /* Assuming this is on your home page, if present on blog, adjust */
+        max-width: 80%;
+    }
+    .page-hero-overlay h1 {
+        font-size: 3em;
+    }
+    .page-hero-overlay p {
+        font-size: 1.2em;
+    }
+    .blog-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+    .newsletter-form {
+        flex-direction: column;
+        align-items: center;
+    }
+    .newsletter-form input[type="email"],
+    .newsletter-form button {
+        width: 100%; /* Full width on smaller screens */
+        max-width: 400px; /* Limit max width for input/button */
+    }
+}
+
+
+/* --- Base Dropdown Container Styles (Desktop & Mobile Base) --- */
+/* This will serve as the default hidden state and base styling for both dropdown types */
+.dropdown-content {
+    display: block; /* We'll control visibility with opacity/pointer-events */
+    position: absolute;
+    background-color: var(--bg-white); /* White background */
+    min-width: 200px; /* Slightly wider dropdowns for better readability */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+    z-index: 10; /* Ensure it stays on top */
+    border-radius: 8px; /* Softer rounded corners */
+    overflow: hidden; /* Hide anything that goes outside the border-radius */
+    padding: 10px 0; /* Internal padding for links */
+
+    /* Animation properties for fade-in and subtle slide-down */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px); /* Start slightly below its final position */
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s ease-out;
+
+    /* Highlight border at the top (or left/right) for an extra touch */
+    border-top: 3px solid var(--primary-green); /* A nice green top border */
+}
+
+/* --- Dropdown Link Styles --- */
+.dropdown-content a {
+    color: var(--text-dark); /* Dark text for links */
+    padding: 12px 20px; /* Generous padding for clickable area */
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    white-space: nowrap; /* Prevent text wrapping */
+    font-weight: 500; /* Slightly bolder for readability */
+    transition: background-color 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--bg-light); /* Light grey on hover */
+    color: var(--primary-green); /* Primary green text on hover */
+    padding-left: 25px; /* Subtle slide-right effect on hover */
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none; /* Remove border from the last link if you had it */
+}
+
+/* --- Desktop Dropdown Activation (on hover) --- */
+/* This rule brings the dropdown into view when the parent is hovered */
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Slide to its final position */
+}
+
+
+/* --- Mobile Dropdown Overrides (within the mobile menu) --- */
+/* We need to ensure mobile dropdowns behave differently */
+@media (max-width: 992px) { /* Ensure this breakpoint matches your mobile menu activation */
+    .dropdown-content.mobile-dropdown-content {
+        position: static; /* Stack directly below its parent link */
+        box-shadow: none; /* Remove shadow on mobile */
+        border-top: none; /* Remove desktop top border */
+        border-radius: 0; /* Remove rounded corners */
+        background-color: var(--bg-light); /* Lighter background for nested menu */
+        padding: 5px 0; /* Less padding for sub-items */
+        min-width: unset; /* Remove min-width constraint */
+        width: 100%; /* Take full width */
+
+        /* Animation for mobile slide-down (controlled by max-height) */
+        opacity: 1; /* Always visible on mobile once triggered */
+        visibility: visible;
+        transform: translateY(0); /* No transform for mobile slide */
+        transition: max-height 0.4s ease-in-out; /* Control height via JS class */
+
+        max-height: 0; /* Hidden by default on mobile */
+        overflow: hidden; /* Hide overflow */
+    }
+
+    /* Mobile dropdown active state */
+    .dropdown-content.mobile-dropdown-content.show-dropdown {
+        max-height: 300px; /* Or a sufficiently large value to reveal all content */
+    }
+
+    .dropdown-content.mobile-dropdown-content a {
+        padding: 10px 20px; /* Slightly less padding than main nav links */
+        font-size: 0.95em;
+        color: var(--text-light); /* Lighter text for sub-items */
+        border-bottom: 1px dashed var(--border-color); /* Dashed separator */
+    }
+
+    .dropdown-content.mobile-dropdown-content a:last-child {
+        border-bottom: none;
+    }
+
+    .dropdown-content.mobile-dropdown-content a:hover {
+        background-color: var(--soft-green); /* Use a very light green on hover */
+        color: var(--primary-green);
+        padding-left: 20px; /* No horizontal slide on hover for mobile to keep it clean */
+    }
+}
+
+/* --- Modal (Pop-up) Styles --- */
+.modal {
+    display: none; /* Hidden by default - JavaScript will toggle 'active' class */
+    position: fixed; /* Stay in place when scrolling */
+    z-index: 1000; /* On top of everything */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if content is too long */
+    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+    backdrop-filter: blur(5px); /* Optional: Blurs content behind the modal */
+    display: flex; /* Use flexbox for easy centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    opacity: 0; /* Initial opacity for fade-in effect */
+    visibility: hidden; /* Hide until active */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for the overlay */
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 600px; /* Max width of the content box */
+    width: 90%; /* Responsive width */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative; /* Needed for positioning the close button */
+    text-align: center;
+    transform: translateY(-50px); /* Initial position for animation (moves up from below) */
+    transition: transform 0.3s ease-out; /* Slide-in animation for the content */
+}
+
+.modal.active .modal-content {
+    transform: translateY(0); /* Final position for animation (slides into view) */
+}
+
+.modal-content h3 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+}
+
+.modal-content p {
+    color: #555;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.close-button {
+    color: #aaaaaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 36px; /* Larger 'X' */
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333333;
+    text-decoration: none;
+}
+
+.modal-button {
+    display: inline-block;
+    background-color: #4CAF50; /* Green button */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+    margin-top: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+
+/* --- Blog Hero Section Styles --- */
+.page-hero {
+    position: relative; /* Needed for absolute positioning of overlay/content */
+    height: 500px; /* Adjust as needed */
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the background image */
+    color: #fff; /* White text for contrast */
+    display: flex; /* Use flexbox to center content */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    text-align: center;
+    overflow: hidden; /* Important to contain any overflow from animations */
+}
+
+.page-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Initial state for overlay animation */
+    opacity: 0;
+    animation: fadeInOverlay 1.5s forwards ease-out; /* Fade in the overlay */
+}
+
+/* Keyframe for overlay fade-in */
+@keyframes fadeInOverlay {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.page-hero-overlay h1 {
+    font-family: 'Merriweather', serif; /* A classic, strong font */
+    font-size: 3.8em; /* Large heading */
+    margin-bottom: 15px;
+    padding: 0 20px; /* Some padding to prevent text from touching edges */
+    /* Initial state for h1 animation */
+    transform: translateY(30px); /* Start slightly below final position */
+    opacity: 0;
+    animation: slideInUp 1s forwards ease-out 0.5s; /* Delay 0.5s after overlay starts */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7); /* Subtle text shadow for depth */
+}
+
+.page-hero-overlay p {
+    font-family: 'Open Sans', sans-serif; /* Clean, readable sans-serif font */
+    font-size: 1.5em;
+    max-width: 700px; /* Limit width for readability */
+    padding: 0 20px;
+    line-height: 1.5;
+    /* Initial state for p animation */
+    transform: translateY(30px); /* Start slightly below final position */
+    opacity: 0;
+    animation: slideInUp 1s forwards ease-out 0.8s; /* Delay 0.8s, after h1 */
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.6); /* Subtle text shadow for depth */
+}
+
+/* Keyframe for content slide-up and fade-in */
+@keyframes slideInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* --- Responsive Adjustments for Hero Section --- */
+@media (max-width: 992px) {
+    .page-hero {
+        height: 400px; /* Slightly shorter on tablets */
+    }
+    .page-hero-overlay h1 {
+        font-size: 3em;
+    }
+    .page-hero-overlay p {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-hero {
+        height: 350px; /* Shorter on mobile */
+    }
+    .page-hero-overlay h1 {
+        font-size: 2.5em;
+    }
+    .page-hero-overlay p {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-hero {
+        height: 300px; /* Even shorter on small mobiles */
+    }
+    .page-hero-overlay h1 {
+        font-size: 2em;
+    }
+    .page-hero-overlay p {
+        font-size: 1em;
+        padding: 0 15px; /* Adjust padding */
+    }
+}
+
+
+
+
+
+/* --- General Enhancements & Typography --- */
+
+/* Smoother scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Better box model for easier sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Improve text rendering */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Stronger emphasis for bold text */
+strong, b {
+    font-weight: 700; /* Ensure bolder than normal text */
+}
+
+/* Improve list styling (if you add any lists) */
+ul {
+    list-style: none; /* Remove default bullets */
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    padding-left: 1.5em; /* Space for custom bullet */
+    position: relative;
+    margin-bottom: 8px;
+}
+
+
+
+/* Line clamps for consistent paragraph heights in cards (useful if content varies a lot) */
+/* .offering-card p, .team-member-card .bio, .value-card p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis if text overflows */
+ 
+    
+
+    /* --- Image & Media Styles --- */
+
+/* Responsive images (max-width already there, but good to reiterate) */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Removes extra space below images */
+}
+
+/* Image captions (if you add any) */
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+figcaption {
+    font-size: 0.9em;
+    color: #777;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+
+/* --- Custom Scrollbar (Modern Browsers only, won't affect Firefox/IE) --- */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #9bc53d;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7a9c30;
+}
+
+/* --- Borders & Dividers --- */
+
+.section-divider {
+    width: 100px;
+    height: 4px;
+    background-color: #9bc53d; /* Lighter green */
+    margin: 40px auto; /* Center it */
+    border-radius: 2px;
+    opacity: 0;
+    animation: fadeInScaleUp 1s ease-out forwards;
+    animation-delay: 1s; /* Delay after content loads */
+}
+
+/* Could place one after section-description in HTML */
+/* <div class="section-divider"></div> */
+
+.line-separator {
+    width: 60%;
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px auto;
+}
+
+
+/* --- Custom Scrollbar (Modern Browsers only, won't affect Firefox/IE) --- */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #9bc53d;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7a9c30;
+}
+
+
+
+
+
